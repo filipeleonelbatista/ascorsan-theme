@@ -3,23 +3,38 @@
   <div class="container">
     <div class="row text-center text-xs-center text-sm-left text-md-left">
       <div class="col-xs-12 col-sm-4 col-md-4">
-        <h5>Ascorsan</h5>
-        <ul class="list-unstyled quick-links">
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Diretoria</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>História</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Asssociações</a></li>
-        </ul>
+        <h5 class='mb-0'>Ascorsan</h5>
+        <!-- Div do menu ascorsan -->
+        <?php        
+            wp_nav_menu( array(
+                'theme_location'    => 'rodape1',
+                'depth'             => 1,
+                'container'         => 'div',
+                'container_class'   => 'ml-0 pt-0',
+                'container_id'      => 'menu-ascorsan',
+                'menu_class'        => 'list-unstyled quick-links',
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'            => new WP_Bootstrap_Navwalker(),
+            ) );
+            ?>
+      <!-- Div do menu ascorsan -->
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-        <h5>Acesso rápido</h5>
-        <ul class="list-unstyled quick-links">
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Faça Login</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Cartão Ascorsan</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Convênios</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Formulários</a></li>
-          <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Plano Odonto</a></li>
-        </ul>
+        <h5 class='mb-0'>Acesso rápido</h5>
+        <!-- Div do menu ascorsan -->
+        <?php        
+            wp_nav_menu( array(
+                'theme_location'    => 'rodape2',
+                'depth'             => 1,
+                'container'         => 'div',
+                'container_class'   => 'ml-0 pt-0',
+                'container_id'      => 'menu-ascorsan',
+                'menu_class'        => 'list-unstyled quick-links',
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'            => new WP_Bootstrap_Navwalker(),
+            ) );
+            ?>
+      <!-- Div do menu ascorsan -->
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
         <h5>Contato</h5>

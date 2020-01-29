@@ -54,66 +54,27 @@
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg" role="navigation">
     <button class="navbar-toggler btn-block" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <a class="navbar-brand" href="#">Menu principal</a>
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="institucional" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Institucional
-          </a>
-          <div class="dropdown-menu" aria-labelledby="institucional">
-            <a class="dropdown-item" href="#">Diretoria</a>
-            <a class="dropdown-item" href="#">História</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="noticias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Notícias
-          </a>
-          <div class="dropdown-menu" aria-labelledby="noticias">
-            <a class="dropdown-item" href="#">Geral</a>
-            <a class="dropdown-item" href="#">Lazer</a>
-            <a class="dropdown-item" href="#">Institucional</a>
-            <a class="dropdown-item" href="#">Pingo d' água</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="convenios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Convênios
-          </a>
-          <div class="dropdown-menu" aria-labelledby="convenios">
-            <a class="dropdown-item" href="#">Cartão ascorsan</a>
-            <a class="dropdown-item" href="#">Formulários</a>
-            <a class="dropdown-item" href="#">Plano Odonto</a>
-            <a class="dropdown-item" href="#">Saude</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="areas-de-lazer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Áreas de lazer
-          </a>
-          <div class="dropdown-menu" aria-labelledby="areas-de-lazer">
-            <a class="dropdown-item" href="#">Sede social de Porto Alegre</a>
-            <a class="dropdown-item" href="#">Marcelino Ramos</a>
-            <a class="dropdown-item" href="#">Rosário do sul</a>
-            <a class="dropdown-item" href="#">Hotel Cisne Branco</a>
-            <a class="dropdown-item" href="#">Hospedaria da República</a>
-          </div>
-        </li>        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Portal Solidário</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contato</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+
+        <?php
+        wp_nav_menu( array(
+            'theme_location'    => 'topo',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'conteudoNavbarSuportado',
+            'menu_class'        => 'navbar-nav mr-auto',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+        ) );
+        ?>
+</nav>
+
 </section>
 <section id="search">
   <div class="search">
