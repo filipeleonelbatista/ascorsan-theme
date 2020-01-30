@@ -4,7 +4,9 @@
   <div class="container">
     <div class="col-sm-12">
       <h3>Notícias</h3>
+      <hr>
       <div class="row">
+      <?php query_posts('category_name=noticias&posts_per_page=3'); ?>
 
       <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
       
@@ -15,10 +17,17 @@
       <?php else : ?>
         <p class="lead"> Nenhuma publicação encontrada.</p>
       <?php endif; ?>
-
-        
                
       </div>
+
+      
+
+      <div class="mb-5">
+        <?php next_posts_link('Mais antigos'); ?>
+        <?php previous_posts_link('Mais novas'); ?>
+      </div>
+      
+      <hr>
     </div>
   </div>
 </section>

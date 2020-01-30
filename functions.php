@@ -38,3 +38,11 @@ set_post_thumbnail_size(1280, 720, true);
 add_filter('excerpt_length', function($length){
     return 30;
 });
+
+// Definir o estilo da paginação
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes(){
+    return 'class="btn btn-sm btn-ascorsan-search d-flex justify-content-between"';
+}

@@ -22,7 +22,7 @@
 <?php else : ?>
 
     <div class="col-sm-4">        
-        <div class="card mb-4 box-shadow">
+        <div class="card mb-4 box-shadow shadow">
         <?php the_post_thumbnail('post-thumbnail', array(
             'class' => 'card-img-top',
             'style' => 'height: 225px; width: 100%; display: block;',
@@ -31,6 +31,9 @@
             <h3><?php the_title(); ?></h3>
             <p class="card-text">
                 <?php the_excerpt(); ?>
+            </p>
+            <p class="card-text">
+                <?php the_category(', '); ?>
             </p>
           </div>
              <div class="card-footer text-muted">

@@ -8,9 +8,7 @@
 
 <?php endwhile;?>
 
-<?php else : ?>
-    <p class="lead"> Nenhuma publicação encontrada.</p>
-<?php endif; ?>
+<?php else : get_404_template(); endif; ?>
 
 
 </div>
