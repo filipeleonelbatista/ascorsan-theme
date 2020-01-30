@@ -22,7 +22,7 @@
 
       
 
-      <div class="mb-5">
+      <div class="d-flex justify-content-between mb-5">
         <?php next_posts_link('Mais antigos'); ?>
         <?php previous_posts_link('Mais novas'); ?>
       </div>
