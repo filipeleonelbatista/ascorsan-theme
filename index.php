@@ -6,8 +6,8 @@
       <h3>Notícias</h3>
       <hr>
       <div class="row">
+      
       <?php query_posts('category_name=noticias&posts_per_page=3'); ?>
-
       <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
       
           <?php get_template_part('content', get_post_format()); ?>
