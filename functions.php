@@ -36,7 +36,7 @@ set_post_thumbnail_size(1280, 720, true);
 
 //Definir o tamanho do resumo
 add_filter('excerpt_length', function($length){
-    return 30;
+    return 20;
 });
 
 // Definir o estilo da paginação
