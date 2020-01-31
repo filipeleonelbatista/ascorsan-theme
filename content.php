@@ -28,7 +28,7 @@
             'style' => 'height: 225px; width: 100%; display: block;',
         )); ?>
           <div class="card-body">
-            <h3><?php the_title(); ?></h3>
+          <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
             <p class="card-text">
                 <?php the_excerpt(); ?>
             </p>
