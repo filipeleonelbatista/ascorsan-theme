@@ -46,7 +46,7 @@
         )); ?>
 
           <div class="card-body">            
-            <a href="<?php the_permalink(); ?>"><b><?php the_title(); ?></b></a>
+            <a class='titulo-link' href="<?php the_permalink(); ?>"><b><?php the_title(); ?></b></a>
           </div>
 
             <div class="card-footer text-muted">

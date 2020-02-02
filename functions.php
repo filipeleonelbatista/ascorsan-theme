@@ -46,3 +46,14 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes(){
     return 'class="btn btn-sm btn-ascorsan-search"';
 }
+
+// Registrando sidebar
+register_sidebar(
+    array(
+        'name' => 'Busca',
+        'id' => 'busca',
+        'before_widget' => '<div class="search">',
+        'after_widget' => '</div>',
+        'before_title' => '<p style="display:none;">',
+        'after_title' => '</p>',
+    ));

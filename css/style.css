@@ -9,6 +9,19 @@ section#search {
     padding: 0px 0 15px 0;
 }
 
+section#footer .nav-link{
+    color: white !important;
+}
+section#footer .nav-link:hover{
+    color: white !important;
+}
+
+.titulo-link {
+    color: black !important;
+}
+.titulo-link:hover {
+    color: grey !important;
+}
 .search{
     padding: 5 10;
     background: rgb(255,203,4);

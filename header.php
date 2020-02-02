@@ -76,13 +76,4 @@
 </nav>
 
 </section>
-<section id="search">
-  <div class="search">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Busque aqui o que você procura">
-      <div class="input-group-append">
-        <button class="btn btn-ascorsan-search" type="button"><i class="fas fa-search"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
+<?php get_sidebar(); ?>

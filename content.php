@@ -1,6 +1,6 @@
 <?php if(is_single() ) : ?>
 
-<div class="container">
+<div class="container mb-4">
     <div class="col">
     <h1 class="mt-5 mb-4"><?php the_title(); ?> </h1>
 
@@ -28,7 +28,7 @@
             'style' => 'height: 225px; width: 100%; display: block;',
         )); ?>
           <div class="card-body">
-          <a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+          <a class='titulo-link' href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
             <p class="card-text">
                 <?php the_excerpt(); ?>
             </p>

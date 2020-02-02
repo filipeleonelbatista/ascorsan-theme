@@ -3,7 +3,7 @@
 <section id="content">
   <div class="container">
     <div class="col-sm-12">
-      <h3>Notícias</h3>
+    <a class='titulo-link' href=" <?php echo esc_url( get_category_link( get_cat_ID( 'Notícias' ) ) ); ?> "><h3>Notícias</h3></a>
       <hr>
       <div class="row">      
         <?php query_posts('category_name=noticias&posts_per_page=3'); ?>
@@ -28,7 +28,7 @@
 <section id="galeria-de-fotos">
   <div class="container">
     <div class="col-sm-12">
-      <h3>Galeria de fotos</h3>
+      <a class='titulo-link' href=" <?php echo esc_url( get_category_link( get_cat_ID( 'Galeria de fotos' ) ) ); ?> "><h3>Galeria de fotos</h3></a>
       <hr>
       <div class="row">
         <?php query_posts('category_name=galeria&posts_per_page=4'); ?>
