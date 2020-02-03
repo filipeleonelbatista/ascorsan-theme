@@ -28,17 +28,28 @@
 <section id="galeria-de-fotos">
   <div class="container">
     <div class="col-sm-12">
-      <a class='titulo-link' href=" <?php echo esc_url( get_category_link( get_cat_ID( 'Galeria de fotos' ) ) ); ?> "><h3>Galeria de fotos</h3></a>
+      <h3>Galeria de fotos</h3>
       <hr>
       <div class="row">
-        <?php query_posts('category_name=galeria&posts_per_page=4'); ?>
-        <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
+          <?php
+            $args = array(
+              'post_type' => 'galeria',
+              'posts_per_page' => 4
+            );          
+          
+          $the_query = new WP_Query( $args );?>
+
+        <?php if( $the_query->have_posts() ) : 
+                  while( $the_query->have_posts() ) : 
+                      $the_query->the_post();  ?>
+
         <?php get_template_part('content-galery', get_post_format()); ?>
+
         <?php endwhile;?>
         <?php else : ?>
-        <div class="col-sm">
-          <p class="lead"> Nenhuma publicação encontrada.</p>
-        </div>
+          <div class="col-sm">
+            <p class="lead"> Nenhuma publicação encontrada.</p>
+          </div>
         <?php endif; ?>
       </div>
       <div class="d-flex justify-content-between mb-5">
