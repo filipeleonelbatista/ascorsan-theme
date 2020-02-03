@@ -108,6 +108,7 @@ function asc_cpt() {
         'exclude_from_search'   => true, //remove da busca do site
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
+		'rewrite'     => array( 'slug' => 'galeria' ), // my custom slug
 	);
 	register_post_type( 'galeria', $args );
 

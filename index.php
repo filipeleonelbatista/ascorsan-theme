@@ -6,7 +6,7 @@
     <a class='titulo-link' href=" <?php echo esc_url( get_category_link( get_cat_ID( 'Notícias' ) ) ); ?> "><h3>Notícias</h3></a>
       <hr>
       <div class="row">      
-        <?php query_posts('category_name=noticias&posts_per_page=3'); ?>
+        
         <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>        
             <?php get_template_part('content', get_post_format()); ?>
           <?php endwhile;?>        
@@ -28,7 +28,7 @@
 <section id="galeria-de-fotos">
   <div class="container">
     <div class="col-sm-12">
-      <h3>Galeria de fotos</h3>
+    <a class='titulo-link' href=" <?php echo get_post_type_archive_link( 'galeria' ); ?> "><h3>Galeria de fotos</h3></a>
       <hr>
       <div class="row">
           <?php
@@ -51,10 +51,6 @@
             <p class="lead"> Nenhuma publicação encontrada.</p>
           </div>
         <?php endif; ?>
-      </div>
-      <div class="d-flex justify-content-between mb-5">
-        <?php next_posts_link('Mais antigos'); ?>
-        <?php previous_posts_link('Mais novas'); ?>
       </div>
     </div>
   </div>
