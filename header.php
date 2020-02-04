@@ -26,7 +26,7 @@
   
         </div>
         <div class="col-sm-4 d-flex justify-content-center">        
-          <a href="#">
+          <a href="<?php echo get_home_url(); ?>">
             <?php 
             
                 $asc_custom_logo = get_theme_mod('custom_logo');
@@ -34,8 +34,8 @@
                 if(has_custom_logo()){
                     echo "<img src='".esc_url($logo[0])."' height='100' alt='Ascorsan'>";
                 }else{
-                    echo "<h1 class='ml-0'>" .get_bloginfo('name'). "</h1>";
-                    echo "<p class='ml-0'>" .get_bloginfo('description'). "</p>";
+                    echo "<h1 class='text-center'>" .get_bloginfo('name'). "</h1>";
+                    echo "<p class='text-center'>" .get_bloginfo('description'). "</p>";
                 }
 
             ?>

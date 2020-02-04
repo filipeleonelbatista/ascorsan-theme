@@ -46,6 +46,8 @@
         <?php get_template_part('content-galery', get_post_format()); ?>
 
         <?php endwhile;?>
+
+
         <?php else : ?>
           <div class="col-sm">
             <p class="lead"> Nenhuma publicação encontrada.</p>
