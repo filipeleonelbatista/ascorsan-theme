@@ -3,7 +3,7 @@
     <div class="col"> 
     
 
-    <h1 class="mt-5 mb-4"><?php the_title(); ?> </h1>
+    <h1 class="mb-4"><?php the_title(); ?> </h1>
     
     <p class="text-muted mt-4">
         <i class="far fa-clock"></i><small>Publicado em: <?php echo get_the_date('d/m/Y'); ?> </small>

@@ -2,7 +2,7 @@
 
 <div class="container mb-4">
     <div class="col">
-    <h1 class="mt-5 mb-4"><?php the_title(); ?> </h1>
+    <h1 class="mb-4"><?php the_title(); ?> </h1>
 
     <?php the_post_thumbnail('post-thumbnail', array(
             'class' => 'img-fluid',

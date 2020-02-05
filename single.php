@@ -2,13 +2,11 @@
 
 <div class="container">
 
-<?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
+<?php if( have_posts() ) : while( have_posts() ) : the_post(); 
       
-<?php if(has_category('galeria')){
-        get_template_part('content-galery', get_post_format());
-    }else{
+
         get_template_part('content', get_post_format());
-    } ?>
+    ?>
 
 <?php endwhile;?>
 
