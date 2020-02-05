@@ -52,8 +52,8 @@ register_sidebar(
     array(
         'name' => 'Busca',
         'id' => 'busca',
-        'before_widget' => '',
-        'after_widget' => '',
+        'before_widget' => '<div class="search">',
+        'after_widget' => '</div>',
         'before_title' => '<p style="display:none;">',
         'after_title' => '</p>',
     ));
