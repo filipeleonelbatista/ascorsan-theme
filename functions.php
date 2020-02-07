@@ -114,3 +114,37 @@ function asc_cpt() {
 
 }
 add_action( 'init', 'asc_cpt', 0 );
+
+
+
+//Mudando o logo da tela de login
+
+function my_login_logo_one() { 
+	?> 
+	<style type="text/css"> 
+	body.login div#login h1 a {
+	 	background-image: url(<?php bloginfo('template_url'); ?>/img/wp-login-page.png); 
+		padding-bottom: 30px; 
+	} 
+	</style>
+	 <?php 
+	} add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
+
+
+function wpb_custom_logo() {
+	echo '
+	<style type="text/css">
+		#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+		background-image: url(' . get_bloginfo('stylesheet_directory') . '/img/wp-dash-icon.png) !important;
+		background-position: 0 0;
+		color:rgba(0, 0, 0, 0);
+		}
+		#wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {
+		background-position: 0 0;
+		}
+	</style>
+	';
+	}
+		
+	//hook into the administrative header output
+	add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
