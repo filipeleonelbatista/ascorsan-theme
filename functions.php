@@ -135,7 +135,7 @@ function wpb_custom_logo() {
 	echo '
 	<style type="text/css">
 		#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-		background-image: url(' . get_bloginfo('stylesheet_directory') . '/img/wp-dash-icon.png) !important;
+		background-image: url(' . get_bloginfo('stylesheet_directory') . '/img/custom-logo.png) !important;
 		background-position: 0 0;
 		color:rgba(0, 0, 0, 0);
 		}
@@ -145,6 +145,13 @@ function wpb_custom_logo() {
 	</style>
 	';
 	}
-		
-	//hook into the administrative header output
 	add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
+
+/**
+* Galeria de imagens
+*/
+function pexeto_add_title_to_attachment( $markup, $id ){
+	$att = get_post( $id );
+	return str_replace('<a ', '<a title="'.$att->post_title.'" ', $markup);
+}
+add_filter('wp_get_attachment_link', 'pexeto_add_title_to_attachment', 10, 5);

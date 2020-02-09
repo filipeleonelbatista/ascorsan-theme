@@ -43,7 +43,7 @@
                   while( $the_query->have_posts() ) : 
                       $the_query->the_post();  ?>
 
-        <?php get_template_part('content-galery', get_post_format()); ?>
+        <?php get_template_part('content', get_post_format()); ?>
 
         <?php endwhile;?>
 

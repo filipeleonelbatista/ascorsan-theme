@@ -74,5 +74,7 @@
     <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js" ></script>
     <script src="<?php bloginfo('template_url'); ?>/js/popper.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.initialize.js"></script>
   </body>
 </html>

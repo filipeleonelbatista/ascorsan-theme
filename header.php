@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link href="./img/favicon.png" rel="icon" type="image/x-icon" />
 
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/magnific-popup.css">
     <?php wp_head(); ?>
   </head>
   <body> 
