@@ -30,43 +30,75 @@
             <p class="text-muted mt-4">
                 <i class="far fa-clock"></i><small>Publicado em: <?php echo get_the_date('d/m/Y'); ?> </small>
             </p> 
-            
-            
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <?php the_post_thumbnail('post-thumbnail', array(
-                        'class' => 'd-block w-100',
-                    )); ?>
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="..." alt="Second slide">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-            
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+        <?php 
+            $index = 0;
+              if ( $gallery = get_post_gallery( get_the_ID(), false ) ) :
+                // Loop through all the image and output them one by one.
+                foreach ( $gallery['src'] AS $src ) {
+                  if($index == 0){
+                    ?>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $index ?>" class="active"></li>
+                    <?php
+                  }else{
+                    ?>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $index ?>"></li>
+                    <?php
+                  }
+                  $index++;
+                }
+
+                else :
+                 echo '<p> Não encontramos arquivos nesta galeria </p>';
                 
-             
-            
-            
-            <?php the_content(); ?>
+            endif;
+          ?>
+        </ol>
+        <div class="carousel-inner">
+          <?php 
+            $index = 0;
+              if ( $gallery = get_post_gallery( get_the_ID(), false ) ) :
+                // Loop through all the image and output them one by one.
+                foreach ( $gallery['src'] AS $src ) {
+                  if($index == 0){
+                    ?>
+                      <div class="carousel-item active">
+                        <img class="d-block" height="350" width="100%" src="<?php echo $src; ?>" alt="Galeria de imagens">
+                      </div>  
+                    <?php
+                  }else{
+                    ?>
+                    <div class="carousel-item">
+                      <img class="d-block" height="350" width="100%" src="<?php echo $src; ?>" alt="Galeria de imagens">
+                    </div>  
+                    <?php
+                  }
+                  $index++;
+                }
 
-            </div>
+                else :
+                 echo '<p> Não encontramos arquivos nesta galeria </p>';
+                
+            endif;
+          ?>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Próximo</span>
+        </a>
+      </div>
+           
+            
+      <?php the_content(); ?>
+
+      </div>
+  </div>
        <!-- FIM Postagem Galeria -->
 
   <?php endif ?>
