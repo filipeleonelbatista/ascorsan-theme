@@ -94,7 +94,7 @@ function asc_cpt() {
 		'label'                 => __( 'Galeria de fotos', 'ascorsan' ),
 		'description'           => __( 'Galeria de fotos da Ascorsan', 'ascorsan' ),
 		'labels'                => $labels,
-		'supports'              => array('title', 'editor', 'thumbnail'), // 'excerpt', 'author'
+		'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), // 'author'
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

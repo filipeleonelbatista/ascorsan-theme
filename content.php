@@ -30,8 +30,13 @@
             <p class="text-muted mt-4">
                 <i class="far fa-clock"></i><small>Publicado em: <?php echo get_the_date('d/m/Y'); ?> </small>
             </p> 
+            <div class="col-sm-12">
+              <p>
+                <?php the_excerpt(); ?>
+              </p>
+            </div>
 
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide shadow rounded" data-ride="carousel">
         <ol class="carousel-indicators">
         <?php 
             $index = 0;
@@ -65,7 +70,7 @@
                   if($index == 0){
                     ?>
                       <div class="carousel-item active">
-                        <img class="d-block" height="350" width="100%" src="<?php echo $src; ?>" alt="Galeria de imagens">
+                        <img class="d-block" height="450" width="100%" src="<?php echo $src; ?>" alt="Galeria de imagens">
                       </div>  
                     <?php
                   }else{
@@ -93,9 +98,33 @@
           <span class="sr-only">Próximo</span>
         </a>
       </div>
-           
+          
+      <div class="mt-5 row">
+        <?php 
+        
+              $index = 0;
+              if ( $gallery = get_post_gallery( get_the_ID(), false ) ) :
+                // Loop through all the image and output them one by one.
+                foreach ( $gallery['src'] AS $src ) {                  
+                  ?>
+                  <div class="col-sm-3">
+                    <a data-target="#carouselExampleIndicators" data-slide-to="<?php echo $index ?>">
+                      <img class="img-thumbnail" src="<?php echo $src; ?>" alt="Itens da galeria">
+                    </a> 
+                  </div> 
+                  <?php
+                  $index++;
+                  }
+                
+
+                else :
+                 echo '<p> Não encontramos arquivos nesta galeria </p>';
+                
+            endif;
+          ?>
+      </div>
             
-      <?php the_content(); ?>
+      
 
       </div>
   </div>
