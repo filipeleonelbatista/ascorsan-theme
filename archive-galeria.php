@@ -21,6 +21,7 @@
 <?php else :
     get_template_part('no_results');
     endif; ?>
-
+    
+<?php get_template_part('novas-galerias'); ?>
 </div>
 <?php get_footer(); ?>

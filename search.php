@@ -26,6 +26,9 @@
     get_template_part('no_results');
     endif; ?>
 
+<?php
+    get_template_part('ultimas-noticias');
+?>
 
 </div>
 

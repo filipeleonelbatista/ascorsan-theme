@@ -20,6 +20,7 @@
 
             </div>
         </div>
+        
        <!-- FIM Postagem normal -->
     <?php else : ?>
       
@@ -123,13 +124,9 @@
             endif;
           ?>
       </div>
-            
-      
-
       </div>
   </div>
-       <!-- FIM Postagem Galeria -->
-
+  <!-- FIM Postagem Galeria -->
   <?php endif ?>
 
 <?php else : ?>

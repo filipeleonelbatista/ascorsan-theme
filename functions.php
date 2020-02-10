@@ -155,3 +155,33 @@ function pexeto_add_title_to_attachment( $markup, $id ){
 	return str_replace('<a ', '<a title="'.$att->post_title.'" ', $markup);
 }
 add_filter('wp_get_attachment_link', 'pexeto_add_title_to_attachment', 10, 5);
+
+
+
+
+// Adicionando a documentação do tema
+
+function my_admin_menu() {
+	add_menu_page(
+		__( 'Tema Ascorsan', 'ascorsan' ),
+		__( 'Tema Ascorsan', 'ascorsan' ),
+		'manage_options',
+		'sample-page',
+		'my_admin_page_contents',
+		'dashicons-admin-appearance',
+		3
+	);
+}
+
+add_action( 'admin_menu', 'my_admin_menu' );
+
+
+function my_admin_page_contents() {
+	?>
+		<h1>
+			<?php esc_html_e( 'Bem vindo ao tema ascorsan.', 'ascorsan' ); ?>
+		</h1>
+		<smal>Documentação do tema da ascorsan</smal>
+		<p><a href="https://themes.artbees.net/blog/wordpress-custom-admin-pages/" target="_blank">Como criar esta página</a></p>
+	<?php
+}
