@@ -56,6 +56,11 @@
     </div>
   </div>
 
+
+ 
+      <?php
+        if ( has_nav_menu( 'topo' ) ) :      
+      ?>
   <nav class="navbar navbar-dark bg-primary navbar-expand-lg" role="navigation">
     <button class="navbar-toggler btn-block" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <a class="navbar-brand" href="#">Menu principal</a>
@@ -75,6 +80,8 @@
         ) );
         ?>
 </nav>
-
+<?php
+    endif;      
+  ?>
 </section>
 <?php get_sidebar(); ?>

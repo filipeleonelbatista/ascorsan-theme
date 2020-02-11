@@ -2,6 +2,10 @@
 <section id="footer">
   <div class="container">
     <div class="row text-center text-xs-center text-sm-left text-md-left">
+      
+      <?php
+        if ( has_nav_menu( 'rodape1' ) ) :      
+      ?>
       <div class="col-xs-12 col-sm-4 col-md-4">
         <h5 class='mb-0'>Ascorsan</h5>
         <!-- Div do menu ascorsan -->
@@ -19,6 +23,12 @@
             ?>
       <!-- Div do menu ascorsan -->
       </div>
+      <?php
+        endif;      
+      ?>
+      <?php
+        if ( has_nav_menu( 'rodape2' ) ) :      
+      ?>
       <div class="col-xs-12 col-sm-4 col-md-4">
         <h5 class='mb-0'>Acesso rápido</h5>
         <!-- Div do menu ascorsan -->
@@ -36,6 +46,10 @@
             ?>
       <!-- Div do menu ascorsan -->
       </div>
+      
+      <?php
+        endif;      
+      ?>
       <div class="col-xs-12 col-sm-4 col-md-4">
         <h5>Contato</h5>
         <ul class="list-unstyled quick-links">
