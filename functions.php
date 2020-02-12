@@ -1,4 +1,5 @@
 <?php
+
 function asc_theme_support(){
     // Adicionando o titulo do tema
     add_theme_support('title-tag');
@@ -226,3 +227,4 @@ function pagination($pages = '', $range = 4)
         echo "</div>\n";
     }
 }
+
