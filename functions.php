@@ -1,5 +1,7 @@
 <?php
+//incluir informações de endereço e telefones
 
+require get_template_directory().'/inc/customizer.php';
 function asc_theme_support(){
     // Adicionando o titulo do tema
     add_theme_support('title-tag');
