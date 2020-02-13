@@ -5,10 +5,18 @@
       <div class="col">
       <h1 class="mb-4"><?php the_title(); ?> </h1>
       
-      <?php the_post_thumbnail('post-thumbnail', array(
-              'class' => 'img-fluid',
-          )); ?>
-      
+      <?php
+                                
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('post-thumbnail', array(
+                'class' => 'img-fluid',
+            )); 
+        }
+        else {
+            echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+                . '/img/default.png" />';
+        }
+        ?>      
           
       <p class="text-muted mt-4">
           <i class="far fa-clock"></i><small>Publicado em: <?php echo get_the_date('d/m/Y'); ?> </small>
@@ -31,11 +39,19 @@
         <!-- Postagem normal -->
           <div class="container mb-4">
               <div class="col">
-              <h1 class="mb-4"><?php the_title(); ?> </h1>
-              
-              <?php the_post_thumbnail('post-thumbnail', array(
-                      'class' => 'img-fluid',
-                  )); ?>
+              <h1 class="mb-4"><?php the_title(); ?> </h1>                           
+              <?php
+                                
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail('post-thumbnail', array(
+                        'class' => 'img-fluid',
+                    )); 
+                }
+                else {
+                    echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+                        . '/img/default.png" />';
+                }
+                ?>
               
                   
               <p class="text-muted mt-4">
@@ -162,10 +178,19 @@
       <!-- Postagem normal -->
       <div class="col-sm-4">        
           <div class="card mb-4 box-shadow shadow">
-          <?php the_post_thumbnail('post-thumbnail', array(
-              'class' => 'card-img-top',
-              'style' => 'height: 225px; width: 100%; display: block;',
-          )); ?>
+          
+          <?php                                
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('post-thumbnail', array(
+                    'class' => 'card-img-top',
+                    'style' => 'height: 255px; width: 100%; display: block;',
+                )); 
+            }
+            else {
+                echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+                    . '/img/default.png" class="card-img-top" style="height: 255px; width: 100%; display: block;" />';
+            }
+            ?>
             <div class="card-body">
             <a class='titulo-link' href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
               <p class="card-text">
@@ -183,11 +208,19 @@
         <!-- Postagem Galeria -->
         <div class="col-sm-3">
           <div class="card mb-4 box-shadow shadow">
-            
-          <?php the_post_thumbnail('post-thumbnail', array(
-              'class' => 'card-img-top',
-              'style' => 'height: 150px; width: 100%; display: block;',
-          )); ?>
+          
+          <?php                                
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('post-thumbnail', array(
+                    'class' => 'card-img-top',
+                    'style' => 'height: 150px; width: 100%; display: block;',
+                )); 
+            }
+            else {
+                echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+                    . '/img/default.png" class="card-img-top" style="height: 150px; width: 100%; display: block;"/>';
+            }
+            ?>
 
             <div class="card-body">            
               <a class='titulo-link' href="<?php the_permalink(); ?>"><b><?php the_title(); ?></b></a>

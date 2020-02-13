@@ -20,10 +20,19 @@
                 <div class="col-sm-12 mb-3">
                         <div class="row d-flex align-items-center">
                             <div class="col-sm-4">
-                                <?php the_post_thumbnail('post-thumbnail', array(
-                                    'class' => 'img-thumbnail',
-                                    'style' => 'height: 170px; width: 100%; display: block;',
-                                )); ?>
+                            <?php
+                                
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail('post-thumbnail', array(
+                                        'class' => 'img-thumbnail',
+                                        'style' => 'height: 170px; width: 100%; display: block;',
+                                    )); 
+                                }
+                                else {
+                                    echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+                                        . '/img/default.png" class="img-thumbnail" style ="height: 170px; width: 100%; display: block;" />';
+                                }
+                                ?>
                             </div>
                             <div class="col-sm-8">
                                 <a href="<?php the_permalink(); ?>" class="titulo-link"><h3><?php the_title(); ?></h3></a>
