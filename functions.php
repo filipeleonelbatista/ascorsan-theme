@@ -2,6 +2,8 @@
 //incluir informações de endereço e telefones
 
 require get_template_directory().'/inc/customizer.php';
+require get_template_directory().'/inc/maintence.php';
+
 function asc_theme_support(){
     // Adicionando o titulo do tema
     add_theme_support('title-tag');
@@ -228,5 +230,21 @@ function pagination($pages = '', $range = 4)
         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last &raquo;</a>";
         echo "</div>\n";
     }
+}
+
+// Adicionando a função em manutenção
+
+if ( get_theme_mod('manutencao') ){
+
+	function wp_maintenance_mode() {
+		if (!current_user_can('edit_themes') || !is_user_logged_in()) {
+			wp_die("<h1>Estamos em manutenção no momento!</h1>
+					<br />Caso tenha duvidas sobre este assunto entre em contato com 
+					o <a href='mailto:contato@ascorsan.com.br'>Administrador do sistema</a>.<br /><br />
+					". get_bloginfo('name') ." - ". get_bloginfo('description') ."
+					");
+		}
+	}
+	add_action('get_header', 'wp_maintenance_mode');
 }
 
