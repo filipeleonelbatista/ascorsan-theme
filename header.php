@@ -45,10 +45,10 @@
         <div class="col-sm-4 d-flex justify-content-center">
           <div class="row mb-2 mt-2 d-flex align-items-center">          
             <!--<a href="#" class="btn btn-outline-light-ascorsan">Faça Login</a>-->
-            <a href="#" class="btn btn-outline-light-ascorsan">Lojinha Ascorsan</a>
+            <a target="_blank" href="<?php echo get_theme_mod('link','#'); ?>" class="btn btn-outline-light-ascorsan"><?php echo get_theme_mod('titulolink','Lojinha Ascorsan'); ?></a>
             <a class="v-divider"></a>
-            <a href="https://www.instagram.com/ascorsan/"> <i class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://www.facebook.com/AscCorsan/"> <i class="fab fa-facebook fa-lg"></i> </a>          
+            <a target="_blank" href="https://www.instagram.com/<?php echo get_theme_mod('facebook','AscCorsan'); ?>/"> <i class="fab fa-instagram fa-lg"></i></a>
+            <a target="_blank" href="https://www.facebook.com/<?php echo get_theme_mod('instagram','ascorsan'); ?>/"> <i class="fab fa-facebook fa-lg"></i> </a>          
             
           </div>
         </div>
