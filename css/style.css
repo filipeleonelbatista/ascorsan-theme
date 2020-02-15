@@ -48,7 +48,18 @@ section#search input:focus{
     margin: 0 2px;
 }
 
-/* section#header a i.fab.fa-facebook{
+/* Imagens dos posts responsivas */
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail{
+	max-width:100%;
+	height: auto;
+}
+
+/* cores do facebook e do insta
+section#header a i.fab.fa-facebook{
     height: 150%;
     margin: 5;
     background: radial-gradient(circle, rgba(0,179,255,1) 0%, rgba(0,106,254,1) 100%);
