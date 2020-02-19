@@ -187,7 +187,8 @@ function my_admin_page_contents() {
 			<?php esc_html_e( 'Bem vindo ao tema ascorsan.', 'ascorsan' ); ?>
 		</h1>
 		<smal>Documentação do tema da ascorsan</smal>
-		<p><a href="https://themes.artbees.net/blog/wordpress-custom-admin-pages/" target="_blank">Como criar esta página</a></p>
+		<p><a href="<?php bloginfo('template_url'); ?>/doc/ascorsan-theme.zip" target="_blank">Baixar o tema para backup</a></p>
+		<p><a href="<?php bloginfo('template_url'); ?>/doc/documentacao.pdf" target="_blank">Documentação</a></p>
 	<?php
 }
 
