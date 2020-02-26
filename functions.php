@@ -3,6 +3,7 @@
 
 require get_template_directory().'/inc/customizer.php';
 require get_template_directory().'/inc/maintence.php';
+require get_template_directory().'/inc/contact.php';
 
 function asc_theme_support(){
     // Adicionando o titulo do tema

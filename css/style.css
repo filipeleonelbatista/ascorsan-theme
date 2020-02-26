@@ -254,3 +254,54 @@ section .section-title {
     background: rgba(51,148,217,1); /* Current page background */
     color:#fff;
  }
+
+ 
+.container2 {
+    background: #FFFFFF;
+    width: 900px;
+    height: 650px;
+    margin: 5% auto;
+    position: relative;
+  }
+  .container2 .map {
+    width: 45%;
+    float: left;
+  }
+  .container2 .contact-form {
+    width: 53%;
+    margin-left: 2%;
+    float: left;
+  }
+  .container2 .contact-form .title {
+    font-size: 2.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: #242424;
+    margin: 5% 8%;
+  }
+  .container2 .contact-form .subtitle {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin: 0 4% 5% 8%;
+  }
+  .container2 .contact-form input,
+  .container2 .contact-form textarea {
+    width: 330px;
+    padding: 3%;
+    margin: 2% 8%;
+    color: #242424;
+    border: 1px solid #B7B7B7;
+  }
+  .container2 .contact-form input::placeholder,
+  .container2 .contact-form textarea::placeholder {
+    color: #242424;
+  }
+  .container2 .contact-form .btn-send {
+    background: #1cb1ea;
+    width: 180px;
+    height: 60px;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin: 2% 8%;
+    border: none;
+  }

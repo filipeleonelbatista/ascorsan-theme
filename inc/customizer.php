@@ -20,7 +20,6 @@ function asc_customize_register($wp_customize){
         'priority' => 1,
     ));
     
-
     $wp_customize->add_setting('email',array(
         'default' => _x('','ascorsan'),
         'type' => 'theme_mod'

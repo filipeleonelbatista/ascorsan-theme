@@ -79,9 +79,14 @@
             'walker'            => new WP_Bootstrap_Navwalker(),
         ) );
         ?>
+      <?php if (get_theme_mod('contato-ativo')) : ?>
+      
+      <?php endif ?>
 </nav>
 <?php
     endif;      
   ?>
 </section>
+
+
 <?php get_sidebar(); ?>
