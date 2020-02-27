@@ -10,7 +10,7 @@
 
 <?php endwhile;?>
 
-<?php else : get_404_template(); endif; ?>
+<?php endif; ?>
 
 </div>
 

@@ -20,6 +20,18 @@ function asc_contact_page_register($wp_customize){
         'priority' => 1,
     ));
 
+    $wp_customize->add_setting('mapa-contato',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('mapa-contato',array(
+        'label' => __('EMBED do google maps','ascorsan'),
+        'section' => 'contato',
+        'priority' => 1,
+    ));
+
 
 }
 

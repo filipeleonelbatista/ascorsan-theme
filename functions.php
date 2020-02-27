@@ -249,4 +249,3 @@ if ( get_theme_mod('manutencao') ){
 	}
 	add_action('get_header', 'wp_maintenance_mode');
 }
-
