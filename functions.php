@@ -67,6 +67,21 @@ body.login div#login form#loginform p.submit input#wp-submit {}
 
 body.login div#login p#nav {}
 
+<?php if( get_theme_mod('img-fundo-login') == "" ) : ?>
+
+body.login div#login p#nav a {	
+	padding: 10px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+body.login div#login p#nav a:hover {
+	color: #ccc;
+}
+<?php else: ?>
+
 body.login div#login p#nav a {	
 	display: block;		
 	background-color: #007cba;
@@ -83,6 +98,25 @@ body.login div#login p#nav a:hover {
 	background-color: #0071a1;
 }
 
+<?php endif; ?>
+
+<?php if( get_theme_mod('img-fundo-login') == "" ) : ?>
+
+body.login div#login p#backtoblog a {	
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+
+body.login div#login p#backtoblog a:hover {	
+	color: #ccc;	
+}
+
+<?php else: ?>
 body.login div#login p#backtoblog {
 	margin-top: 30px;
 }
@@ -105,6 +139,9 @@ body.login div#login p#backtoblog a:hover {
 	background-color: #0071a1;
 	
 }
+<?php endif; ?>
+
+
 	</style>    
 <?php }
 add_action( 'login_enqueue_scripts', 'asc_stylesheet' );
@@ -240,6 +277,7 @@ require get_template_directory().'/inc/aviso.php';
 require get_template_directory().'/inc/whatsapp.php';
 require get_template_directory().'/inc/login.php';
 require get_template_directory().'/inc/rodape.php';
+require get_template_directory().'/inc/beneficio.php';
 
 
 function asc_theme_support(){

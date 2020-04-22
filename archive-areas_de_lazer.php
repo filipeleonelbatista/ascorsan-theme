@@ -4,7 +4,7 @@
 <?php
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = array(
-        'post_type' => 'convenio',
+        'post_type' => 'areas_de_lazer',
         'posts_per_page' => 5,
         'paged' => $paged
     );          
@@ -12,7 +12,7 @@
     $the_query = new WP_Query( $args );?>
 
 <?php if( $the_query->have_posts() ) : ?>
-        <h1>Convênios</h1>
+        <h1>Áreas de lazer</h1>
         <hr>
            <?php while( $the_query->have_posts() ) : 
                 $the_query->the_post();  ?>

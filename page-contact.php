@@ -69,30 +69,37 @@ if($_POST){
 
 <?php get_header(); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
-
+<div class="espaco"></div>
 <div class="container text-center">
     <h1><?php the_title(); ?></h1>
     <p><?php the_content(); ?></p>
 </div>
-<div class="container2">
-	<div class="map">        
-		<iframe src="<?php echo get_theme_mod('mapa-contato','https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13817.417349418676!2d-51.2262963!3d-30.0266907!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x83372a7a63600dc4!2sAscorsan!5e0!3m2!1spt-BR!2sbr!4v1582738294303!5m2!1spt-BR!2sbr'); ?>" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-           
-	<div class="contact-form">
-		<h1 class="title"><?php the_title(); ?></h1>
-		<!-- <h2 class="subtitle"></h2> -->
-  		<?php echo $response; ?>
-		<form id="contact-form" action="" method="post">
-			<input type="text" name="contact-name" required placeholder="Nome *" value="<?php echo esc_attr($_POST['contact-name']); ?>"/>
-			<input type="email" name="contact-email" required placeholder="Email *" value="<?php echo esc_attr($_POST['contact-email']); ?>"/>
-			<input type="tel" name="contact-phone" required placeholder="Telefone *" value="<?php echo esc_attr($_POST['contact-phone']); ?>" />
-			<textarea name="contact-msg" rows="8" required placeholder="Sua Mensagem *"><?php echo esc_textarea($_POST['contact-msg']); ?></textarea>
-			<button id="submit" type="submit" class="btn-send">Enviar mensagem</button>
-		</form>
-    </div>
-    
+<div class="espaco"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="map">        
+				<iframe src="<?php echo get_theme_mod('mapa-contato','https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13817.417349418676!2d-51.2262963!3d-30.0266907!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x83372a7a63600dc4!2sAscorsan!5e0!3m2!1spt-BR!2sbr!4v1582738294303!5m2!1spt-BR!2sbr'); ?>" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="contact-form">
+				<h1 class="title"><?php the_title(); ?></h1>
+				<!-- <h2 class="subtitle"></h2> -->
+				<?php echo $response; ?>
+				<form id="contact-form" action="" method="post">
+					<input type="text" name="contact-name" required placeholder="Nome *" value="<?php echo esc_attr($_POST['contact-name']); ?>"/>
+					<input type="email" name="contact-email" required placeholder="Email *" value="<?php echo esc_attr($_POST['contact-email']); ?>"/>
+					<input type="tel" name="contact-phone" required placeholder="Telefone *" value="<?php echo esc_attr($_POST['contact-phone']); ?>" />
+					<textarea name="contact-msg" rows="8" required placeholder="Sua Mensagem *"><?php echo esc_textarea($_POST['contact-msg']); ?></textarea>
+					<button id="submit" type="submit" class="btn-send">Enviar mensagem</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
 </div>
+<div class="espaco"></div>
 
 <?php endwhile; endif; ?>
 

@@ -7,7 +7,7 @@
 
           <!-- Menu institucional -->
           <div class="row">
-            <div class="col-sm pl-0 pr-0">          
+            <div class="col-sm pl-0 pr-0">
 
 
               <?php
@@ -43,66 +43,75 @@
           <div class="row">
             <div class="col-sm pl-0 pr-0">
 
-            <?php
-            if(get_theme_mod('noticia-rodape-option')=='true'):
-            ?>
-
               <?php
+              if (get_theme_mod('noticia-rodape-option') == 'true') :
+              ?>
 
-              $args = array(
+                <?php
+
+                $args = array(
                   'post_type' => array('post', 'video'),
                   'posts_per_page' => 3
-              );
+                );
 
-              $the_query = new WP_Query($args); ?>
+                $the_query = new WP_Query($args); ?>
 
-              <?php if ($the_query->have_posts()) :?>
-                <div class="col-sm">
-                  <h5 class='mb-0'>Notícias</h5>
-                  <div class="ml-0 pt-0">
-                    <ul class="list-unstyled quick-links">
-                <?php while ($the_query->have_posts()) :
-                        $the_query->the_post();  ?>
-                        
-                        <li>
-                          <a class="nav-link" href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                          </a>
-                        </li>
+                <?php if ($the_query->have_posts()) : ?>
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Notícias</h5>
+                    <div class="ml-0 pt-0">
+                      <ul class="list-unstyled quick-links">
+                        <?php while ($the_query->have_posts()) :
+                          $the_query->the_post();  ?>
 
-                <?php endwhile; ?>
-                  </ul>
-                </div>
-              </div>
+                          <li>
+                            <a class="nav-link" href="<?php the_permalink(); ?>">
+                              <?php
+
+                              $new_title = substr(get_the_title(), 0, 20);
+
+                              if (strlen(get_the_title()) > 20) {
+                                $new_title =  $new_title . " ...";
+                              }
+                              echo $new_title;
+                              //the_title(); 
+                              ?>
+                            </a>
+                          </li>
+
+                        <?php endwhile; ?>
+                      </ul>
+                    </div>
+                  </div>
+                <?php endif; ?>
+
+              <?php else : ?>
+
+
+                <?php
+                if (has_nav_menu('rodape3')) :
+                ?>
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Notícias</h5>
+                    <!-- Div do menu ascorsan -->
+                    <?php
+                    wp_nav_menu(array(
+                      'theme_location'    => 'rodape3',
+                      'depth'             => 1,
+                      'container'         => 'div',
+                      'container_class'   => 'ml-0 pt-0',
+                      'container_id'      => 'menu-noticias',
+                      'menu_class'        => 'list-unstyled quick-links',
+                      'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                      'walker'            => new WP_Bootstrap_Navwalker(),
+                    ));
+                    ?>
+                    <!-- Div do menu ascorsan -->
+                  </div>
+                <?php endif; ?>
+
+
               <?php endif; ?>
-
-            <?php else: ?>
-
-
-              <?php
-              if (has_nav_menu('rodape3')) :
-              ?>
-                <div class="col-sm">
-                  <h5 class='mb-0'>Notícias</h5>
-                  <!-- Div do menu ascorsan -->
-                  <?php
-                  wp_nav_menu(array(
-                    'theme_location'    => 'rodape3',
-                    'depth'             => 1,
-                    'container'         => 'div',
-                    'container_class'   => 'ml-0 pt-0',
-                    'container_id'      => 'menu-noticias',
-                    'menu_class'        => 'list-unstyled quick-links',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                  ));
-                  ?>
-                  <!-- Div do menu ascorsan -->
-                </div>
-              <?php endif; ?>
-
-
-            <?php endif; ?>         
 
 
 
@@ -124,70 +133,79 @@
           <div class="row">
             <div class="col-sm pl-0 pr-0">
 
-            <?php
-            if(get_theme_mod('area-rodape-option')=='true'):
-            ?>
-
               <?php
+              if (get_theme_mod('area-rodape-option') == 'true') :
+              ?>
 
-              $args = array(
+                <?php
+
+                $args = array(
                   'post_type' => array('areas_de_lazer'),
                   'posts_per_page' => 3
-              );
+                );
 
-              $the_query = new WP_Query($args); ?>
+                $the_query = new WP_Query($args); ?>
 
-              <?php if ($the_query->have_posts()) :?>
-              <div class="col-sm">
-                <h5 class='mb-0'>Áreas de lazer</h5>
-                  <div class="ml-0 pt-0">
-                    <ul class="list-unstyled quick-links">
-                <?php while ($the_query->have_posts()) :
-                        $the_query->the_post();  ?>
-                        
-                        <li>
-                          <a href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                          </a>
-                        </li>
+                <?php if ($the_query->have_posts()) : ?>
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Áreas de lazer</h5>
+                    <div class="ml-0 pt-0">
+                      <ul class="list-unstyled quick-links">
+                        <?php while ($the_query->have_posts()) :
+                          $the_query->the_post();  ?>
 
-                <?php endwhile; ?>
-                  </ul>
-                </div>
-              </div>
-              <?php endif; ?>
+                          <li>
+                            <a href="<?php the_permalink(); ?>">
+                              <?php
 
-            <?php else: ?>
+                              $new_title = substr(get_the_title(), 0, 20);
 
+                              if (strlen(get_the_title()) > 20) {
+                                $new_title =  $new_title . " ...";
+                              }
+                              echo $new_title;
+                              //the_title(); 
+                              ?>
+                            </a>
+                          </li>
 
-            
-              <?php
-              if (has_nav_menu('rodape2')) :
-              ?>
-                <div class="col-sm">
-                  <h5 class='mb-0'>Áreas de lazer</h5>
-                  <!-- Div do menu ascorsan -->
-                  <?php
-                  wp_nav_menu(array(
-                    'theme_location'    => 'rodape2',
-                    'depth'             => 1,
-                    'container'         => 'div',
-                    'container_class'   => 'ml-0 pt-0',
-                    'container_id'      => 'menu-areas-lazer',
-                    'menu_class'        => 'list-unstyled quick-links',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                  ));
-                  ?>
-                  <!-- Div do menu ascorsan -->
-                </div>
-              <?php
-              endif;
-              ?>
-
-
-
+                        <?php endwhile; ?>
+                      </ul>
+                    </div>
+                  </div>
                 <?php endif; ?>
+
+              <?php else : ?>
+
+
+
+                <?php
+                if (has_nav_menu('rodape2')) :
+                ?>
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Áreas de lazer</h5>
+                    <!-- Div do menu ascorsan -->
+                    <?php
+                    wp_nav_menu(array(
+                      'theme_location'    => 'rodape2',
+                      'depth'             => 1,
+                      'container'         => 'div',
+                      'container_class'   => 'ml-0 pt-0',
+                      'container_id'      => 'menu-areas-lazer',
+                      'menu_class'        => 'list-unstyled quick-links',
+                      'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                      'walker'            => new WP_Bootstrap_Navwalker(),
+                    ));
+                    ?>
+                    <!-- Div do menu ascorsan -->
+                  </div>
+                <?php
+                endif;
+                ?>
+
+
+
+              <?php endif; ?>
 
             </div>
           </div>
@@ -198,72 +216,81 @@
           <div class="row">
             <div class="col-sm pl-0 pr-0">
 
-            <?php
-            if(get_theme_mod('area-rodape-option')=='true'):
-            ?>
-
               <?php
+              if (get_theme_mod('area-rodape-option') == 'true') :
+              ?>
 
-              $args = array(
+                <?php
+
+                $args = array(
                   'post_type' => array('convenios'),
                   'posts_per_page' => 3
-              );
+                );
 
-              $the_query = new WP_Query($args); ?>
+                $the_query = new WP_Query($args); ?>
 
-              <?php if ($the_query->have_posts()) :?>
-              
-                <div class="col-sm">
-                  <h5 class='mb-0'>Convênios</h5>
+                <?php if ($the_query->have_posts()) : ?>
+
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Convênios</h5>
                     <div class="ml-0 pt-0">
                       <ul class="list-unstyled quick-links">
-                <?php while ($the_query->have_posts()) :
-                        $the_query->the_post();  ?>
-                        
-                        <li>
-                          <a href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                          </a>
-                        </li>
+                        <?php while ($the_query->have_posts()) :
+                          $the_query->the_post();  ?>
 
-                <?php endwhile; ?>
-                  </ul>
-                </div>
-              </div>
+                          <li>
+                            <a href="<?php the_permalink(); ?>">
+                              <?php
+
+                              $new_title = substr(get_the_title(), 0, 20);
+
+                              if (strlen(get_the_title()) > 20) {
+                                $new_title =  $new_title . " ...";
+                              }
+                              echo $new_title;
+                              //the_title(); 
+                              ?>
+                            </a>
+                          </li>
+
+                        <?php endwhile; ?>
+                      </ul>
+                    </div>
+                  </div>
+                <?php endif; ?>
+
+              <?php else : ?>
+
+
+
+
+                <?php
+                if (has_nav_menu('rodape4')) :
+                ?>
+                  <div class="col-sm">
+                    <h5 class='mb-0'>Convênios</h5>
+                    <!-- Div do menu ascorsan -->
+                    <?php
+                    wp_nav_menu(array(
+                      'theme_location'    => 'rodape4',
+                      'depth'             => 1,
+                      'container'         => 'div',
+                      'container_class'   => 'ml-0 pt-0',
+                      'container_id'      => 'menu-convenios',
+                      'menu_class'        => 'list-unstyled quick-links',
+                      'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                      'walker'            => new WP_Bootstrap_Navwalker(),
+                    ));
+                    ?>
+                    <!-- Div do menu ascorsan -->
+                  </div>
+                <?php
+                endif;
+                ?>
+
+
+
               <?php endif; ?>
-
-            <?php else: ?>
-
-
-
-              
-              <?php
-              if (has_nav_menu('rodape4')) :
-              ?>
-                <div class="col-sm">
-                  <h5 class='mb-0'>Convênios</h5>
-                  <!-- Div do menu ascorsan -->
-                  <?php
-                  wp_nav_menu(array(
-                    'theme_location'    => 'rodape4',
-                    'depth'             => 1,
-                    'container'         => 'div',
-                    'container_class'   => 'ml-0 pt-0',
-                    'container_id'      => 'menu-convenios',
-                    'menu_class'        => 'list-unstyled quick-links',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                  ));
-                  ?>
-                  <!-- Div do menu ascorsan -->
-                </div>
-              <?php
-              endif;
-              ?>
-
-
-
-<?php endif; ?>
 
             </div>
           </div>
@@ -353,37 +380,37 @@
 </script>
 
 <?php if (get_theme_mod("add-whatsapp")) : ?>
-<!-- WhatsHelp.io widget -->
-<script type="text/javascript">
-  (function() {
-    var options = {      
-      // telegram: "<?php echo "+55".get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Telegram bot username
-      // sms: "<?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Sms phone number
-      call: "<?php echo get_theme_mod('telefone', '(51) 3275.8088'); ?>", // Call phone number
-      facebook: "<?php echo get_theme_mod('facebook', 'AscCorsan'); ?>", // Facebook page ID
-      whatsapp: "<?php echo "+55".get_theme_mod('whatsapp', '51 99289.7516'); ?>", // WhatsApp number 
-      email: "<?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?>", // Email
-      greeting_message: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Text of greeting message
-      call_to_action: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Call to action
-      button_color: "<?php echo get_theme_mod("cor-whatsapp", "#c49d14"); ?>", // Color of button
-      position: "<?php echo get_theme_mod("posicao-whatsapp", "right"); ?>", // Position may be 'right' or 'left'
-      order: "facebook, whatsapp, telegram, sms, call, email" // Order of buttons
-    };
-    var proto = document.location.protocol,
-      host = "whatshelp.io",
-      url = proto + "//static." + host;
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = url + '/widget-send-button/js/init.js';
-    s.onload = function() {
-      WhWidgetSendButton.init(host, proto, options);
-    };
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-  })();
-</script>
-<!-- /WhatsHelp.io widget -->
+  <!-- WhatsHelp.io widget -->
+  <script type="text/javascript">
+    (function() {
+      var options = {
+        // telegram: "<?php echo "+55" . get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Telegram bot username
+        // sms: "<?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Sms phone number
+        call: "<?php echo get_theme_mod('telefone', '(51) 3275.8088'); ?>", // Call phone number
+        facebook: "<?php echo get_theme_mod('facebook', 'AscCorsan'); ?>", // Facebook page ID
+        whatsapp: "<?php echo "+55" . get_theme_mod('whatsapp', '51 99289.7516'); ?>", // WhatsApp number 
+        email: "<?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?>", // Email
+        greeting_message: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Text of greeting message
+        call_to_action: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Call to action
+        button_color: "<?php echo get_theme_mod("cor-whatsapp", "#c49d14"); ?>", // Color of button
+        position: "<?php echo get_theme_mod("posicao-whatsapp", "right"); ?>", // Position may be 'right' or 'left'
+        order: "facebook, whatsapp, telegram, sms, call, email" // Order of buttons
+      };
+      var proto = document.location.protocol,
+        host = "whatshelp.io",
+        url = proto + "//static." + host;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function() {
+        WhWidgetSendButton.init(host, proto, options);
+      };
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    })();
+  </script>
+  <!-- /WhatsHelp.io widget -->
 <?php endif; ?>
 
 </body>

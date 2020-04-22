@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'HARABARA';
+    src: url('../font/HARABARA.TTF') format('truetype');
+}
+
 section {
     padding: 15px 0;
 }
@@ -296,18 +301,18 @@ section .section-title {
     position: relative;
 }
 
-.container2 .map {
-    width: 45%;
+.map {
+    width: 100%;
     float: left;
 }
 
-.container2 .contact-form {
+.contact-form {
     width: 53%;
     margin-left: 2%;
     float: left;
 }
 
-.container2 .contact-form .title {
+.contact-form .title {
     font-size: 2.5em;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
@@ -315,14 +320,14 @@ section .section-title {
     margin: 5% 8%;
 }
 
-.container2 .contact-form .subtitle {
+.contact-form .subtitle {
     font-size: 1.2em;
     font-weight: 400;
     margin: 0 4% 5% 8%;
 }
 
-.container2 .contact-form input,
-.container2 .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 330px;
     padding: 3%;
     margin: 2% 8%;
@@ -330,12 +335,12 @@ section .section-title {
     border: 1px solid #B7B7B7;
 }
 
-.container2 .contact-form input::placeholder,
-.container2 .contact-form textarea::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
     color: #242424;
 }
 
-.container2 .contact-form .btn-send {
+.contact-form .btn-send {
     background: #1cb1ea;
     width: 180px;
     height: 60px;
@@ -353,54 +358,49 @@ section .section-title {
 
 .convenio-area {
     width: auto;
-    padding: 45px 0 !important;
-    background-color: #e6e7e8;
+    padding: 25px 0 !important;
+    background-color: #fff;
+    font-family: "HARABARA";
 }
 
-ul.convenio-area-contato {
-    list-style: none;
-    text-align: center;
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
-
-ul.convenio-area-contato li a {
-    color: black;
-    list-style: none;
-    font-weight: bold;
-    font-size: x-large;
-}
-
-ul#menu-beneficios {
+.beneficio-list {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    margin: 0;
+    gap: 10px 10px;
+    margin: 15px 0;
     padding: 0;
 }
 
-ul#menu-beneficios li {
-    text-align: center;
-    color: White;
-    background-color: #007bff;
-    margin: 5px;
-    border-radius: 8px;
+.beneficio-list li {
+    /* text-align: center; */
+    text-align: start;
 }
 
-ul#menu-beneficios li:hover {
-    color: White;
-    background-color: #035ab8;
+.beneficio-list li a.nav-link::before {
+    content: "\f09d";
+    /* FontAwesome Unicode */
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    margin-right: 5px;
+    /* same as padding-left set on li */
+    width: 1.3em;
+    /* same as padding-left set on li */
 }
 
-ul#menu-beneficios li:active {
-    color: White;
-    background-color: #007bff;
-    box-shadow: 0 0 0 .2rem #035ab8
+.beneficio-list li a.nav-link {
+    padding: 0;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-ul#menu-beneficios li:focus {
+.beneficio-list li a.nav-link:hover {
+    color: #AAA !important;
+}
+
+.beneficio-list li:focus {
     box-shadow: 0 0 0 .2rem #035ab8
 }
 
@@ -417,9 +417,18 @@ ul.convenio-area-contato li i {
 
 .img-convenio {
     border-radius: 50%;
+    border: 3px solid #006c8a;
 }
 
 .linha-convenios {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+}
+
+.linha-convenios-2 {
     margin: 0px 25px;
     justify-items: center;
     display: grid;
@@ -446,7 +455,7 @@ ul.convenio-area-contato li i {
     z-index: 21;
     position: relative;
     top: 110px;
-    right: 25px;
+    right: 15px;
 }
 
 .cover-wrapper:hover {
@@ -503,4 +512,63 @@ ul.convenio-area-contato li i {
 .list-unstyled.quick-links .nav-link {
     padding: 0;
     margin: 0 10px;
+}
+
+.galeria-size {
+    font-size: 16px;
+}
+
+.horario-atendimento {
+    display: flex;
+    background-color: #006c8a;
+    border-radius: 30px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.divisor-convenio {
+    text-align: center;
+    background-color: white;
+    height: 3px;
+    border-radius: 5px;
+    width: 100%;
+    margin: 15px 0;
+    padding: 0 25px;
+}
+
+.link-convenio-telefones {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.link-convenio {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.link-convenio-email {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.link-convenio:hover {
+    color: #AAA;
+}
+
+.telefones-beneficios {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 5px;
+    /* justify-items: center; */
+    align-items: center;
+}
+
+.espaco {
+    width: 100%;
+    height: 40px;
 }
