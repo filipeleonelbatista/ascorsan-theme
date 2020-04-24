@@ -26,7 +26,13 @@
       </a>
       <p class="card-text">
         <?php
-        echo substr(get_the_excerpt(), 0, 150) . " [...]";
+
+        $new_title = substr(get_the_excerpt(), 0, 150);
+
+        if (strlen(get_the_excerpt()) > 150) {
+          $new_title =  $new_title . " ...";
+        }
+        echo $new_title;
         ?>
       </p>
     </div>

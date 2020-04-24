@@ -384,7 +384,7 @@ function asc_video_cpt() {
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
-        'menu_position'         => 5,
+        'menu_position'         => 3,
         'menu_icon'             => 'dashicons-format-video',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
@@ -434,7 +434,7 @@ function asc_areas_de_lazer_cpt() {
 		'label'                 => __( 'Areas de Lazer', 'ascorsan' ),
 		'description'           => __( 'Areas de Lazer', 'ascorsan' ),
 		'labels'                => $labels,
-		'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), 
+		'supports'              => array('title', 'editor', 'thumbnail'), 
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -619,6 +619,61 @@ function asc_galeria_cpt() {
 
 }
 add_action( 'init', 'asc_galeria_cpt', 0 );
+
+function asc_aviso_cpt() {
+
+	$labels = array(
+		'name'                  => _x( 'Avisos do site', 'Avisos do site', 'ascorsan' ),
+		'singular_name'         => _x( 'Aviso do site', 'Aviso do site', 'ascorsan' ),
+		'menu_name'             => __( 'Avisos do site', 'ascorsan' ),
+		'name_admin_bar'        => __( 'Avisos do site', 'ascorsan' ),
+		'archives'              => __( 'Avisos arquivados', 'ascorsan' ),
+		'attributes'            => __( 'Atributos', 'ascorsan' ),
+		'all_items'             => __( 'Todos os avisos', 'ascorsan' ),
+		'add_new_item'          => __( 'Adicionar Avisos do site', 'ascorsan' ),
+		'add_new'               => __( 'Adicionar Novo Aviso', 'ascorsan' ),
+		'new_item'              => __( 'Nova aviso', 'ascorsan' ),
+		'edit_item'             => __( 'Editar aviso', 'ascorsan' ),
+		'update_item'           => __( 'Atualizar aviso', 'ascorsan' ),
+		'view_item'             => __( 'Ver aviso', 'ascorsan' ),
+		'view_items'            => __( 'Ver avisos', 'ascorsan' ),
+		'search_items'          => __( 'Search Item', 'ascorsan' ),
+		'not_found'             => __( 'Não encontrou', 'ascorsan' ),
+		'not_found_in_trash'    => __( 'Não encontrou na lixeira', 'ascorsan' ),
+		'featured_image'        => __( 'Imagem principal', 'ascorsan' ),
+		'set_featured_image'    => __( 'Selecionar imagem principal', 'ascorsan' ),
+		'remove_featured_image' => __( 'Remover imagem principal', 'ascorsan' ),
+		'use_featured_image'    => __( 'Usar como imagem principal', 'ascorsan' ),
+		'insert_into_item'      => __( 'Inserir na aviso', 'ascorsan' ),
+		'uploaded_to_this_item' => __( 'Subir para a aviso', 'ascorsan' ),
+		'items_list'            => __( 'Listar itens', 'ascorsan' ),
+		'items_list_navigation' => __( 'Listar navegação de itens', 'ascorsan' ),
+		'filter_items_list'     => __( 'Filtrar lista', 'ascorsan' ),
+	);
+	$args = array(
+		'label'                 => __( 'Avisos do site', 'ascorsan' ),
+		'description'           => __( 'Avisos aparecerão como pop up no site na pagina principal. Será necessário habilitar em personalização', 'ascorsan' ),
+		'labels'                => $labels,
+		'supports'              => array('title', 'editor', 'thumbnail'), // 'author'
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 8,
+		'menu_icon'             => 'dashicons-megaphone',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false, //remove da busca do site
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'rewrite'     => array( 'slug' => 'aviso' ), // my custom slug
+	);
+	register_post_type( 'aviso', $args );
+	
+	}
+	add_action( 'init', 'asc_aviso_cpt', 0 );
 
 
 function wpb_custom_logo() {

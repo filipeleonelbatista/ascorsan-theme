@@ -9,10 +9,11 @@
         the_post_thumbnail('post-thumbnail', array(
           'class' => 'img-fluid',
         ));
-      } else {
-        echo '<img src="' . get_bloginfo('stylesheet_directory')
-          . '/img/default.png" />';
-      }
+      } 
+      // else {
+      //   echo '<img src="' . get_bloginfo('stylesheet_directory')
+      //     . '/img/default.png" />';
+      // }
       ?>
 
       <p class="text-muted mt-4">

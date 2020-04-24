@@ -3,20 +3,26 @@
     <div class="col-sm-12 mb-3">
         <div class="row d-flex align-items-center">
             <div class="col-sm-4">
-                
-            <?php
-                
-                if ( has_post_thumbnail() ) {
-                    the_post_thumbnail('post-thumbnail', array(
-                        'class' => 'img-thumbnail',
-                        'style' => 'height: 170px; width: 100%; display: block;',
-                    )); 
-                }
-                else {
-                    echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
-                        . '/img/default.png" class="img-thumbnail" style="height: 170px; width: 100%; display: block;" />';
-                }
-                ?>
+
+            <div class="moldura">
+                <div style="
+                        background-color: #fff;
+                        height: 100%;
+                        width: 100%;
+                        background-image: url('<?php
+                                if (has_post_thumbnail()) {
+                                the_post_thumbnail_url();
+                                } else {
+                                echo get_bloginfo('stylesheet_directory') . '/img/default.png';
+                                }
+                                ?>');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: relative;">
+
+                </div>
+            </div>
                 
             </div>
             <div class="col-sm-8">

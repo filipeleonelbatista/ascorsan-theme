@@ -1,3 +1,5 @@
+<div class="espaco"></div>
+
 <section id="footer">
   <div class="container">
     <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -363,35 +365,29 @@
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.initialize.js"></script>
-<!-- SWIPPER -->
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  });
-</script>
+<script src="<?php bloginfo('template_url'); ?>/js/jquery.mask.min.js"></script>
+
+
 
 <?php if (get_theme_mod("add-whatsapp")) : ?>
   <!-- WhatsHelp.io widget -->
   <script type="text/javascript">
     (function() {
       var options = {
-        // telegram: "<?php echo "+55" . get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Telegram bot username
-        // sms: "<?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>", // Sms phone number
+        <?php if(get_theme_mod('exibir-phone')): ?>
         call: "<?php echo get_theme_mod('telefone', '(51) 3275.8088'); ?>", // Call phone number
+        <?php endif;?>
+        <?php if(get_theme_mod('exibir-facebook')): ?>
         facebook: "<?php echo get_theme_mod('facebook', 'AscCorsan'); ?>", // Facebook page ID
+        <?php endif;?>
+        <?php if(get_theme_mod('exibir-whatsapp')): ?>
         whatsapp: "<?php echo "+55" . get_theme_mod('whatsapp', '51 99289.7516'); ?>", // WhatsApp number 
+        <?php endif;?>
+        <?php if(get_theme_mod('exibir-email')): ?>
         email: "<?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?>", // Email
-        greeting_message: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Text of greeting message
-        call_to_action: "<?php echo get_theme_mod("mensagem-whatsapp", "Olá, Precisa de Ajuda?"); ?>", // Call to action
+        <?php endif;?>
+        greeting_message: "<?php echo get_theme_mod("mensagem-whatsapp"); ?>", // Text of greeting message
+        call_to_action: "<?php echo get_theme_mod("mensagem-whatsapp"); ?>", // Call to action
         button_color: "<?php echo get_theme_mod("cor-whatsapp", "#c49d14"); ?>", // Color of button
         position: "<?php echo get_theme_mod("posicao-whatsapp", "right"); ?>", // Position may be 'right' or 'left'
         order: "facebook, whatsapp, telegram, sms, call, email" // Order of buttons

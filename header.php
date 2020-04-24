@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/style.css">
     <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+    <script src="<?php bloginfo('template_url'); ?>/js/jquery.mask.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link href="<?php bloginfo('template_url'); ?>/img/favicon.png" rel="icon" type="image/x-icon" />
@@ -88,6 +89,4 @@
     endif;      
   ?>
 </section>
-
-
 <?php get_sidebar(); ?>

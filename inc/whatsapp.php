@@ -20,6 +20,59 @@ function asc_whatsapp_register($wp_customize){
         'section' => 'whatsapp',
         'priority' => 1,
     )); 
+    
+
+    $wp_customize->add_setting('exibir-phone',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('exibir-phone',array(
+        'type' => 'checkbox',
+        'label' => __('Exibir telefone no widget?','ascorsan'),
+        'section' => 'whatsapp',
+        'priority' => 1,
+    )); 
+
+    $wp_customize->add_setting('exibir-email',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('exibir-email',array(
+        'type' => 'checkbox',
+        'label' => __('Exibir e-mail no widget','ascorsan'),
+        'section' => 'whatsapp',
+        'priority' => 1,
+    )); 
+
+    $wp_customize->add_setting('exibir-facebook',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('exibir-facebook',array(
+        'type' => 'checkbox',
+        'label' => __('Exibir Facebook no widget','ascorsan'),
+        'section' => 'whatsapp',
+        'priority' => 1,
+    )); 
+
+    $wp_customize->add_setting('exibir-whatsapp',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('exibir-whatsapp',array(
+        'type' => 'checkbox',
+        'label' => __('Exibir Whatsapp no widget','ascorsan'),
+        'section' => 'whatsapp',
+        'priority' => 1,
+    )); 
 
     $wp_customize->add_setting('cor-whatsapp',array(
         'default' => _x('','ascorsan'),
