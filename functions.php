@@ -35,6 +35,28 @@ add_filter('pre_site_transient_update_core','remove_core_updates'); //hide updat
 add_filter('pre_site_transient_update_plugins','remove_core_updates'); //hide updates for all plugins
 add_filter('pre_site_transient_update_themes','remove_core_updates'); //hide updates for all themes
 
+
+// Removes from admin menu
+add_action( 'admin_menu', 'my_remove_admin_menus' );
+function my_remove_admin_menus() {
+    remove_menu_page( 'edit-comments.php' );
+}
+// Removes from post and pages
+add_action('init', 'remove_comment_support', 100);
+
+function remove_comment_support() {
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'page', 'comments' );
+}
+// Removes from admin bar
+function asc_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'asc_admin_bar_render' );
+
+
+
 //Login Stylesheet
 function asc_stylesheet() { ?>
 	<style>
@@ -220,33 +242,15 @@ function asc_add_dashboard_widgets() {
 add_action( 'wp_dashboard_setup', 'asc_add_dashboard_widgets' );
 
 
-// Adicionando a documentação do tema
-
-// function my_admin_menu() {
-// 	add_menu_page(
-// 		__( 'Tema Ascorsan', 'ascorsan' ),
-// 		__( 'Tema Ascorsan', 'ascorsan' ),
-// 		'manage_options',
-// 		'sample-page',
-// 		'my_admin_page_contents',
-// 		'dashicons-admin-appearance',
-// 		3
-// 	);
-// }
-//add_action( 'admin_menu', 'my_admin_menu' );
-
-function my_admin_page_contents() {
-	?>
-		<h1>
-			<?php esc_html_e( 'Bem vindo ao tema ascorsan.', 'ascorsan' ); ?>
-		</h1>
-	<?php	
-require get_template_directory().'/inc/readme.php';
-}
-
 function asc_remove_menus() {
-	if ( ! current_user_can( 'manage_options' ) ) {
-		remove_menu_page( 'themes.php' );          // Appearance
+	// if ( ! current_user_can( 'manage_options' ) ) {
+	if (true) {
+		remove_menu_page( 'index.php' ); 
+		remove_menu_page( 'edit.php?post_type=page' ); 
+		remove_menu_page( 'edit.php?post_type=acf-field-group' ); 		
+		remove_menu_page( 'edit.php' ); 
+		remove_menu_page( 'upload.php' ); 
+		remove_menu_page( 'themes.php' ); 
 		remove_menu_page( 'plugins.php' );         // Plugins
 		remove_menu_page( 'users.php' );           // Users
 		remove_menu_page( 'tools.php' );           // Tools
@@ -293,6 +297,8 @@ add_filter( 'login_headertitle', 'asc_login_logo_url_title' );
 
 
 //incluir informações de endereço e telefones
+
+require get_template_directory().'/inc/function-admin.php';
 
 require get_template_directory().'/inc/my_customizer.php'; // 20
 
@@ -553,7 +559,7 @@ function asc_video_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
         'menu_position'         => 3,
         'menu_icon'             => 'dashicons-format-video',
 		'show_in_admin_bar'     => true,
@@ -608,7 +614,7 @@ function asc_areas_de_lazer_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
 		'menu_position'         => 4,
 		'menu_icon'             => 'dashicons-admin-multisite',
 		'show_in_admin_bar'     => true,
@@ -663,7 +669,7 @@ function asc_convenio_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-book-alt',
 		'show_in_admin_bar'     => true,
@@ -718,7 +724,7 @@ function asc_banner_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
         'menu_position'         => 6,
         'menu_icon'             => 'dashicons-images-alt',
 		'show_in_admin_bar'     => true,
@@ -773,7 +779,7 @@ function asc_galeria_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
         'menu_position'         => 7,
         'menu_icon'             => 'dashicons-camera',
 		'show_in_admin_bar'     => true,
@@ -828,7 +834,7 @@ function asc_aviso_cpt() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
 		'menu_position'         => 8,
 		'menu_icon'             => 'dashicons-megaphone',
 		'show_in_admin_bar'     => true,
@@ -846,116 +852,116 @@ function asc_aviso_cpt() {
 	add_action( 'init', 'asc_aviso_cpt', 0 );
 
 
-	function asc_associado_cpt() {
+function asc_associado_cpt() {
 
-		$labels = array(
-			'name'                  => _x( 'Espaço do associado da Ascorsan', 'Espaço do associado da Ascorsan', 'ascorsan' ),
-			'singular_name'         => _x( 'Espaço do associado', 'Espaço do associado', 'ascorsan' ),
-			'menu_name'             => __( 'Espaço do associado', 'ascorsan' ),
-			'name_admin_bar'        => __( 'Espaço do associado', 'ascorsan' ),
-			'archives'              => __( 'Itens arquivados', 'ascorsan' ),
-			'attributes'            => __( 'Atributos', 'ascorsan' ),
-			'all_items'             => __( 'Todos as Itens', 'ascorsan' ),
-			'add_new_item'          => __( 'Adicionar Espaço do associado', 'ascorsan' ),
-			'add_new'               => __( 'Adicionar Novo Item', 'ascorsan' ),
-			'new_item'              => __( 'Nova Item', 'ascorsan' ),
-			'edit_item'             => __( 'Editar Item', 'ascorsan' ),
-			'update_item'           => __( 'Atualizar Item', 'ascorsan' ),
-			'view_item'             => __( 'Ver Item', 'ascorsan' ),
-			'view_items'            => __( 'Ver Itens', 'ascorsan' ),
-			'search_items'          => __( 'Search Item', 'ascorsan' ),
-			'not_found'             => __( 'Não encontrou', 'ascorsan' ),
-			'not_found_in_trash'    => __( 'Não encontrou na lixeira', 'ascorsan' ),
-			'featured_image'        => __( 'Imagem principal', 'ascorsan' ),
-			'set_featured_image'    => __( 'Selecionar imagem principal', 'ascorsan' ),
-			'remove_featured_image' => __( 'Remover imagem principal', 'ascorsan' ),
-			'use_featured_image'    => __( 'Usar como imagem principal', 'ascorsan' ),
-			'insert_into_item'      => __( 'Inserir na Item', 'ascorsan' ),
-			'uploaded_to_this_item' => __( 'Subir para a Item', 'ascorsan' ),
-			'items_list'            => __( 'Listar itens', 'ascorsan' ),
-			'items_list_navigation' => __( 'Listar navegação de itens', 'ascorsan' ),
-			'filter_items_list'     => __( 'Filtrar lista', 'ascorsan' ),
-		);
-		$args = array(
-			'label'                 => __( 'Espaço do associado', 'ascorsan' ),
-			'description'           => __( 'Espaço do associado da Ascorsan', 'ascorsan' ),
-			'labels'                => $labels,
-			'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), // 'author'
-			'hierarchical'          => false,
-			'public'                => true,
-			'show_ui'               => true,
-			'show_in_menu'          => true,
-			'menu_position'         => 8,
-			'menu_icon'             => 'dashicons-businessperson',
-			'show_in_admin_bar'     => true,
-			'show_in_nav_menus'     => true,
-			'can_export'            => true,
-			'has_archive'           => true,
-			'exclude_from_search'   => false, //remove da busca do site
-			'publicly_queryable'    => true,
-			'capability_type'       => 'post',
-			'rewrite'     => array( 'slug' => 'associado' ), // my custom slug
-		);
-		register_post_type( 'associado', $args );
-	
-	}
-	add_action( 'init', 'asc_associado_cpt', 0 );
+	$labels = array(
+		'name'                  => _x( 'Espaço do associado da Ascorsan', 'Espaço do associado da Ascorsan', 'ascorsan' ),
+		'singular_name'         => _x( 'Espaço do associado', 'Espaço do associado', 'ascorsan' ),
+		'menu_name'             => __( 'Espaço do associado', 'ascorsan' ),
+		'name_admin_bar'        => __( 'Espaço do associado', 'ascorsan' ),
+		'archives'              => __( 'Itens arquivados', 'ascorsan' ),
+		'attributes'            => __( 'Atributos', 'ascorsan' ),
+		'all_items'             => __( 'Todos as Itens', 'ascorsan' ),
+		'add_new_item'          => __( 'Adicionar Espaço do associado', 'ascorsan' ),
+		'add_new'               => __( 'Adicionar Novo Item', 'ascorsan' ),
+		'new_item'              => __( 'Nova Item', 'ascorsan' ),
+		'edit_item'             => __( 'Editar Item', 'ascorsan' ),
+		'update_item'           => __( 'Atualizar Item', 'ascorsan' ),
+		'view_item'             => __( 'Ver Item', 'ascorsan' ),
+		'view_items'            => __( 'Ver Itens', 'ascorsan' ),
+		'search_items'          => __( 'Search Item', 'ascorsan' ),
+		'not_found'             => __( 'Não encontrou', 'ascorsan' ),
+		'not_found_in_trash'    => __( 'Não encontrou na lixeira', 'ascorsan' ),
+		'featured_image'        => __( 'Imagem principal', 'ascorsan' ),
+		'set_featured_image'    => __( 'Selecionar imagem principal', 'ascorsan' ),
+		'remove_featured_image' => __( 'Remover imagem principal', 'ascorsan' ),
+		'use_featured_image'    => __( 'Usar como imagem principal', 'ascorsan' ),
+		'insert_into_item'      => __( 'Inserir na Item', 'ascorsan' ),
+		'uploaded_to_this_item' => __( 'Subir para a Item', 'ascorsan' ),
+		'items_list'            => __( 'Listar itens', 'ascorsan' ),
+		'items_list_navigation' => __( 'Listar navegação de itens', 'ascorsan' ),
+		'filter_items_list'     => __( 'Filtrar lista', 'ascorsan' ),
+	);
+	$args = array(
+		'label'                 => __( 'Espaço do associado', 'ascorsan' ),
+		'description'           => __( 'Espaço do associado da Ascorsan', 'ascorsan' ),
+		'labels'                => $labels,
+		'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), // 'author'
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => false,
+		'menu_position'         => 8,
+		'menu_icon'             => 'dashicons-businessperson',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false, //remove da busca do site
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'rewrite'     => array( 'slug' => 'associado' ), // my custom slug
+	);
+	register_post_type( 'associado', $args );
+
+}
+add_action( 'init', 'asc_associado_cpt', 0 );
 
 
-	function asc_solidario_cpt() {
+function asc_solidario_cpt() {
 
-		$labels = array(
-			'name'                  => _x( 'Portal Solidário da Ascorsan', 'Portal Solidário da Ascorsan', 'ascorsan' ),
-			'singular_name'         => _x( 'Portal Solidário', 'Portal Solidário', 'ascorsan' ),
-			'menu_name'             => __( 'Portal Solidário', 'ascorsan' ),
-			'name_admin_bar'        => __( 'Portal Solidário', 'ascorsan' ),
-			'archives'              => __( 'Itens arquivados', 'ascorsan' ),
-			'attributes'            => __( 'Atributos', 'ascorsan' ),
-			'all_items'             => __( 'Todos as Itens', 'ascorsan' ),
-			'add_new_item'          => __( 'Adicionar Portal Solidário', 'ascorsan' ),
-			'add_new'               => __( 'Adicionar Novo Item', 'ascorsan' ),
-			'new_item'              => __( 'Nova Item', 'ascorsan' ),
-			'edit_item'             => __( 'Editar Item', 'ascorsan' ),
-			'update_item'           => __( 'Atualizar Item', 'ascorsan' ),
-			'view_item'             => __( 'Ver Item', 'ascorsan' ),
-			'view_items'            => __( 'Ver Itens', 'ascorsan' ),
-			'search_items'          => __( 'Search Item', 'ascorsan' ),
-			'not_found'             => __( 'Não encontrou', 'ascorsan' ),
-			'not_found_in_trash'    => __( 'Não encontrou na lixeira', 'ascorsan' ),
-			'featured_image'        => __( 'Imagem principal', 'ascorsan' ),
-			'set_featured_image'    => __( 'Selecionar imagem principal', 'ascorsan' ),
-			'remove_featured_image' => __( 'Remover imagem principal', 'ascorsan' ),
-			'use_featured_image'    => __( 'Usar como imagem principal', 'ascorsan' ),
-			'insert_into_item'      => __( 'Inserir na Item', 'ascorsan' ),
-			'uploaded_to_this_item' => __( 'Subir para a Item', 'ascorsan' ),
-			'items_list'            => __( 'Listar itens', 'ascorsan' ),
-			'items_list_navigation' => __( 'Listar navegação de itens', 'ascorsan' ),
-			'filter_items_list'     => __( 'Filtrar lista', 'ascorsan' ),
-		);
-		$args = array(
-			'label'                 => __( 'Portal Solidário', 'ascorsan' ),
-			'description'           => __( 'Portal Solidário da Ascorsan', 'ascorsan' ),
-			'labels'                => $labels,
-			'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), // 'author'
-			'hierarchical'          => false,
-			'public'                => true,
-			'show_ui'               => true,
-			'show_in_menu'          => true,
-			'menu_position'         => 8,
-			'menu_icon'             => 'dashicons-universal-access',
-			'show_in_admin_bar'     => true,
-			'show_in_nav_menus'     => true,
-			'can_export'            => true,
-			'has_archive'           => true,
-			'exclude_from_search'   => false, //remove da busca do site
-			'publicly_queryable'    => true,
-			'capability_type'       => 'post',
-			'rewrite'     => array( 'slug' => 'solidario' ), // my custom slug
-		);
-		register_post_type( 'solidario', $args );
-	
-	}
-	add_action( 'init', 'asc_solidario_cpt', 0 );
+	$labels = array(
+		'name'                  => _x( 'Portal Solidário da Ascorsan', 'Portal Solidário da Ascorsan', 'ascorsan' ),
+		'singular_name'         => _x( 'Portal Solidário', 'Portal Solidário', 'ascorsan' ),
+		'menu_name'             => __( 'Portal Solidário', 'ascorsan' ),
+		'name_admin_bar'        => __( 'Portal Solidário', 'ascorsan' ),
+		'archives'              => __( 'Itens arquivados', 'ascorsan' ),
+		'attributes'            => __( 'Atributos', 'ascorsan' ),
+		'all_items'             => __( 'Todos as Itens', 'ascorsan' ),
+		'add_new_item'          => __( 'Adicionar Portal Solidário', 'ascorsan' ),
+		'add_new'               => __( 'Adicionar Novo Item', 'ascorsan' ),
+		'new_item'              => __( 'Nova Item', 'ascorsan' ),
+		'edit_item'             => __( 'Editar Item', 'ascorsan' ),
+		'update_item'           => __( 'Atualizar Item', 'ascorsan' ),
+		'view_item'             => __( 'Ver Item', 'ascorsan' ),
+		'view_items'            => __( 'Ver Itens', 'ascorsan' ),
+		'search_items'          => __( 'Search Item', 'ascorsan' ),
+		'not_found'             => __( 'Não encontrou', 'ascorsan' ),
+		'not_found_in_trash'    => __( 'Não encontrou na lixeira', 'ascorsan' ),
+		'featured_image'        => __( 'Imagem principal', 'ascorsan' ),
+		'set_featured_image'    => __( 'Selecionar imagem principal', 'ascorsan' ),
+		'remove_featured_image' => __( 'Remover imagem principal', 'ascorsan' ),
+		'use_featured_image'    => __( 'Usar como imagem principal', 'ascorsan' ),
+		'insert_into_item'      => __( 'Inserir na Item', 'ascorsan' ),
+		'uploaded_to_this_item' => __( 'Subir para a Item', 'ascorsan' ),
+		'items_list'            => __( 'Listar itens', 'ascorsan' ),
+		'items_list_navigation' => __( 'Listar navegação de itens', 'ascorsan' ),
+		'filter_items_list'     => __( 'Filtrar lista', 'ascorsan' ),
+	);
+	$args = array(
+		'label'                 => __( 'Portal Solidário', 'ascorsan' ),
+		'description'           => __( 'Portal Solidário da Ascorsan', 'ascorsan' ),
+		'labels'                => $labels,
+		'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'), // 'author'
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => false,
+		'menu_position'         => 9,
+		'menu_icon'             => 'dashicons-universal-access',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false, //remove da busca do site
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'rewrite'     => array( 'slug' => 'solidario' ), // my custom slug
+	);
+	register_post_type( 'solidario', $args );
+
+}
+add_action( 'init', 'asc_solidario_cpt', 0 );
 
 function wpb_custom_logo() {
 	echo '

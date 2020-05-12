@@ -609,7 +609,7 @@ ul.convenio-area-contato li i {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 10px;
+    /* grid-gap: 10px; */
 }
 
 .swiper-img {
@@ -799,4 +799,62 @@ h4,
 h5,
 .text-ascorsan-azul {
     color: #006c8a;
+}
+
+@media (max-width: 700px) {
+    .btn-convenio-mobile {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 15px;
+        margin-top: 10px;
+    }
+    /* video */
+    .overlay .text-block {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: #FFFFFFcc;
+        font-size: 100px;
+        z-index: 10;
+        top: 35%;
+    }
+    #menu-convenios {
+        padding: 0;
+    }
+    #menu-convenios ul li a {
+        font-size: 80% !important;
+    }
+    .horario-atendimento {
+        margin: 0 15px;
+    }
+    .atendimento-conteudo-mobile h2 {
+        font-size: 24px !important;
+    }
+    .atendimento-conteudo-mobile p {
+        font-size: 80% !important;
+    }
+    .atendimento-conteudo-mobile a.link-convenio {
+        font-size: 20px !important;
+    }
+    .atendimento-conteudo-mobile a.link-convenio-email {
+        font-size: 18px !important;
+    }
+    .btn-mobile {
+        font-size: 80% !important;
+        display: block !important;
+    }
+    .video-content {
+        margin: 0 15px;
+    }
+    .video-content iframe {
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 15px;
+    }
+    .menu-convenios ul li.nav-item a.nav-link {}
+    .video-content-button-close,
+    .video-content-button-open {
+        display: block;
+        margin: 15px 0;
+    }
 }

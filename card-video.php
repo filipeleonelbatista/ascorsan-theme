@@ -8,11 +8,11 @@
         if (has_post_thumbnail()) {
           the_post_thumbnail('post-thumbnail', array(
             'class' => 'card-img-top',
-            'style' => 'height: 155px; width: 100%; display: block; position: relative;',
+            'style' => 'height: auto; width: 100%; display: block;',
           ));
         } else {
           echo '<img src="' . get_bloginfo('stylesheet_directory')
-            . '/img/default.png" class="card-img-top" style="height: 155px; width: 100%; display: block; position: relative;" />';
+            . '/img/default.png" class="card-img-top" style="height: auto; width: 100%; display: block;" />';
         }
         ?>
         <div class="text-block">

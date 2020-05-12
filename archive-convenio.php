@@ -22,7 +22,7 @@
         <!-- Menu de buscas -->
 
         <div class="row mb-4">
-            <div class="col-sm">
+            <div class="col-sm mb-2">
                 <a class="btn btn-sm btn-ascorsan-primary ml-2" href="<?php echo get_post_type_archive_link('convenio'); ?>">Todos</a>
                 <?php while ($the_query->have_posts()) :
                     $the_query->the_post();  ?>
@@ -43,7 +43,7 @@
             </div>
             <form class="form-inline" action="">
                 <input type="hidden" id="uf" value="<?php echo get_query_var("uf", 0); ?>">
-                <div class="col-sm">
+                <div class="col-sm mb-2">
 
                     <select class="custom-select" id="municipio">
                         <option value="0">Selecione um municipio...</option>

@@ -33,7 +33,7 @@
                         $url_g_maps .= "-" . urlencode( get_field("uf", get_the_id()) );
 
                     ?>               
-                    <a class="btn btn-lg btn-ascorsan-primary-outline mr-2" href="<?php echo $url_g_maps; ?>" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+                    <a class="btn btn-lg btn-convenio-mobile btn-ascorsan-primary-outline mr-2" href="<?php echo $url_g_maps; ?>" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
                 </div>
                 <?php endif; ?>
             </div>

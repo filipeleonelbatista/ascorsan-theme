@@ -3,7 +3,7 @@
   <div class="convenio-area">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8 mb-4">
 
           <div class="text-center" style="margin: 15px 0;">
             <h2 style="color: #006c8a;">BENEFÍCIOS EXCLUSIVOS <BR> PARA ASSOCIADOS</h2>
@@ -34,8 +34,8 @@
           ?>
 
           <div class="row">
-            <div class="col-sm-12" style="padding: 0 30px;">
-            <a href="<?php echo get_post_type_archive_link('convenio'); ?>" class=" btn btn-block btn-lg btn-ascorsan-primary-outline">CONFIRA MAIS BENEFÍCIOS AQUI<i class="fas fa-arrow-circle-right ml-4"></i></a>
+            <div class="col-sm-12 d-block" style="/*padding: 0 30px;*/">
+            <a href="<?php echo get_post_type_archive_link('convenio'); ?>" class="btn btn-block btn-mobile btn-lg btn-ascorsan-primary-outline">CONFIRA MAIS BENEFÍCIOS AQUI<i class="fas fa-arrow-circle-right ml-4"></i></a>
             </div>
           </div>
 
@@ -45,7 +45,7 @@
 
         </div>
         <div class="col-sm-4 horario-atendimento">
-          <div class="atendimento-conteudo" style="margin: 15px 0;">
+          <div class="atendimento-conteudo atendimento-conteudo-mobile" style="margin: 15px 0;">
 
             <div class="text-center">
               <h2 class="text-white">Entre em contato <br>com a Ascorsan</h2>
