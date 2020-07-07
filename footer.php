@@ -215,7 +215,7 @@
           <ul class="list-unstyled quick-links">
             <li><a href="https://www.facebook.com/<?php echo get_theme_mod('facebook', 'AscCorsan'); ?>/" target="_blank"><i class="fab fa-facebook"></i><?php echo get_theme_mod('facebook', 'AscCorsan'); ?></a></li>
             <li><a href="https://www.instagram.com/<?php echo get_theme_mod('instagram', 'ascorsan'); ?>/" target="_blank"><i class="fab fa-instagram"></i><?php echo get_theme_mod('instagram', 'ascorsan'); ?></a></li>
-            <li><a href="https://api.whatsapp.com/send?phone=55<?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>/" target="_blank"><i class="fab fa-whatsapp"></i><?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=55<?php echo get_theme_mod('telefone3', '51 99289.7516'); ?>/" target="_blank"><i class="fab fa-whatsapp"></i><?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?></a></li>
             <li><a href="mailto:<?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?>" target="_blank"><i class="fa fa-envelope"></i><?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?></a></li>
           </ul>
           <!-- <ul class="list-unstyled list-inline social text-center">
@@ -287,7 +287,7 @@
         facebook: "<?php echo get_theme_mod('facebook', 'AscCorsan'); ?>", // Facebook page ID
         <?php endif;?>
         <?php if(get_theme_mod('exibir-whatsapp')): ?>
-        whatsapp: "<?php echo "+55" . get_theme_mod('whatsapp', '51 99289.7516'); ?>", // WhatsApp number 
+        whatsapp: "<?php echo "+55" . get_theme_mod('telefone3', '51 99289.7516'); ?>", // WhatsApp number 
         <?php endif;?>
         <?php if(get_theme_mod('exibir-email')): ?>
         email: "<?php echo get_theme_mod('email', 'ascorsan@ascorsan.com.br'); ?>", // Email
