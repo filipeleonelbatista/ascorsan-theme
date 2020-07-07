@@ -74,8 +74,8 @@
 
               <div class="row">
                 <div class="col-sm-12">
-                  <a class="link-convenio" href="https://api.whatsapp.com/send?phone=55<?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>" target="_blank">
-                    <i class="fab fa-whatsapp mr-2" style="color: #0cc243;"></i><?php echo get_theme_mod('whatsapp', '51 99289.7516'); ?>
+                  <a class="link-convenio" href="https://api.whatsapp.com/send?phone=55<?php echo get_theme_mod('telefone3', '51 99289.7516'); ?>" target="_blank">
+                    <i class="fab fa-whatsapp mr-2" style="color: #0cc243;"></i><?php echo get_theme_mod('telefone3', '51 99289.7516'); ?>
                   </a>
                 </div>
               </div>
