@@ -57,6 +57,12 @@ function asc_customize_register($wp_customize){
         'label' => __('Segundo Telefone','ascorsan'),
         'section' => 'dados-contato',
         'priority' => 4,
+    ));    
+
+    $wp_customize->add_setting('telefone3',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
     ));
 
     $wp_customize->add_control('telefone3',array(
