@@ -58,6 +58,12 @@ function asc_customize_register($wp_customize){
         'section' => 'dados-contato',
         'priority' => 4,
     ));
+
+    $wp_customize->add_control('telefone3',array(
+        'label' => __('Whatsapp','ascorsan'),
+        'section' => 'dados-contato',
+        'priority' => 4,
+    ));
     
 
     $wp_customize->add_setting('facebook',array(
