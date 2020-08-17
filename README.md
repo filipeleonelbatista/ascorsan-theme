@@ -2,6 +2,12 @@
 
 Tema criado para a Ascorsan, Associaçao de servidores da Corsan. Inicialmente pensada para ser um portal de notícias que evoluiu para divulgação de seus convênios e serviços ao associado.
 
+## CHANGE LOG
+
+**O que mudou?**
+
+A **versão 1.9** traz uma melhoria Na pagina de arquivo "Espaço do associado" que torna possivel inserir um link como banner ou como botão.
+
 ## Requisitos
 
 #### Plugins necessários
@@ -16,6 +22,8 @@ O tema possui alguns **recursos** como:
 * Banners rotativos
 * Menu/Área de benefícios ao associado
 * Área de Convênios
+* Espaço do Associado
+* Portal Solidário
 * Área de cards de notícias
 * Área de cards de galeria de imagens
 * Menu no topo
@@ -25,7 +33,6 @@ O tema possui alguns **recursos** como:
 	* Menu áreas de lazer
 	* Menu notícias
 	* Menu convênios
-* Propagandas **(Em breve)**
 
 ## Instalação
 
@@ -47,29 +54,3 @@ As postagens por pagina, provavelmente não influenciarão neste tema mas caso o
 
 #### Imagem e logotipo do tema
 Por padrão não é inserido diretamente no tema a imagem, já o logotipo sim. no entanto ele pode ser alterado dentro do painel administrativo no caminho ```Aparencia>Personalizar>Identidade do site``` . Nesta área será possível subir a imagem da marca e o ícone do site. É recomendado que a logo tenha pelo menos ```128x128px``` de altura
-
-#### Dados de contato
-Por padrão não é inserido diretamente no tema as informações de contato. No entanto se não houver nada, será informado as informações atuais da empresa. Se for necessário alterar, basta entrar no painel administrativo no caminho ``Aparencia>Personalizar>Dados de contato`` Para informar os dados da empresa. Lembrando que estes dados são utilizados em mais locais do site como, por exemplo, Página de contato, Rodapé, Redes sociais, etc.
-
-#### Link do cabeçalho
-
-#### Criação de menus
-
-#### Inserir o Widget de busca
-
-#### Tipos de postagens
-* **Posts** - Destinados para notícias* 
-* **Videos** - Destinado para Noticias no formato de vídeos
-* **Galeria de fotos**
-* **Banners**
-* **Convênios**
-* **Áreas de lazer**
-* **Páginas**
-
-#### Ativar e inserir banners rotativos
-
-#### Inserir área de benefícios ao associado
-
-#### Inserir Página de contato
-
-#### Inserir Galeria de fotos
