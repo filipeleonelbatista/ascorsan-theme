@@ -50,7 +50,7 @@
             <div class="text-center">
               <h2 class="text-white">Entre em contato <br>com a Ascorsan</h2>
               <p style="font-weight: bold;">
-                (Seg. a Sex. das 8h às 12h e das 13h às 17h)
+                (Seg. a Sex. das 9h às 12:30h e das 13:30h às 18h)
               </p>
             </div>
             <div class="text-center" style="padding: 0 15px; margin-top: 20px;">
