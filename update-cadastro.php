@@ -46,7 +46,9 @@ $email = $_POST['update-email'];
 $unidade_trabalho = $_POST['update-unidade-trabalho'];
 $email_trabalho = $_POST['update-email-trabalho'];
 
-$message = "<b>Atualização Cadastral</b>\n";
+// $message = "<b>Atualização Cadastral</b>\n";
+$message = "<b>Formulário Assembleia Geral Extraordinária</b>\n";
+  
 $message .= "<hr>\n";
 $message .= "<b>Nome: </b>" . $nome . "\n";
 $message .= "<b>Matricula: </b>" . $matricula . "\n\n";
@@ -62,12 +64,14 @@ $message .= "<b>E-mail: </b>" . $email . "\n\n";
 $message .= "<b>Unidade de trabalho: </b>" . $unidade_trabalho . "\n";
 $message .= "<b>E-mail de trabalho: </b>" . $email_trabalho . "\n";
 $message .= "<hr>\n";
-$message .= "Email enviado pelo formulário de atualização cadastral da Ascorsan\n";
+// $message .= "Email enviado pelo formulário de atualização cadastral da Ascorsan\n";
+$message .= "Email enviado pelo Formulário Assembleia Geral Extraordinária da Ascorsan\n";
 
 
 //php mailer variables
 $to = get_theme_mod('email-update');
-$subject = "Atualização cadastral feita pelo Pop-Up " . get_bloginfo('name');
+// $subject = "Atualização cadastral feita pelo Pop-Up " . get_bloginfo('name');
+$subject = "Assembleia Geral Extraordinária enviado pelo Pop-Up " . get_bloginfo('name');
 $headers = 'From: ' . $email . "\r\n" .
     'Reply-To: ' . $email . "\r\n";
 
