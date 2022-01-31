@@ -9,74 +9,53 @@ function asc_aviso_register($wp_customize){
         'priority' => 24,
         'panel' => 'ascorsan-customizer',
     ));
-
-    $wp_customize->add_setting('add-aviso',array(
+    
+    $wp_customize->add_setting( 'select-aviso', array(
         'default' => _x('','ascorsan'),
-        'type' => 'theme_mod'
+        'type' => 'theme_mod',
+        'default' => 'nenhum',
+    ) );
+    
+    $wp_customize->add_control( 'select-aviso', array(
+        'type' => 'select',
+        'section' => 'aviso', // Add a default or your own section
+        'label' => __( 'Tipos de aviso','ascorsan'),
+        'choices' => array(
+            'nenhum' => __( 'Nenhum' ),
+            'imposto_renda' => __( 'Imposto de renda' ),
+            'atualizacao_cadastral' => __( 'Atualização cadastral' ),
+            'page' => __( 'Página personalizada' ),
+            'image' => __( 'Imagem destacada' ),
+        ),
+    ) );
 
+    $wp_customize->add_setting( 'select-dropdown-pages', array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod',
+      ) );
+      
+      $wp_customize->add_control( 'select-dropdown-pages', array(
+        'type' => 'dropdown-pages',
+        'section' => 'aviso',
+        'label' => __( 'Páginas personalizadas' ),
+        'description' => __( 'Caso tenha selecionado a opção "Página personalizada", selecione a página que contém seu seu formulário.' ),
+      ) );
+
+// Adicionando imagem ao aviso
+
+    $wp_customize->add_setting('img-aviso', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'absint'
     ));
 
-    $wp_customize->add_control('add-aviso',array(
-        'type' => 'checkbox',
-        'label' => __('Ativar avisos na pagina inicial?','ascorsan'),
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'img-aviso', array(
         'section' => 'aviso',
-        'priority' => 1,
-    )); 
+        'description' => 'A imagem que irá no aviso quando a opção selecionada for "Imagem Desstacada".',
+        'label' => 'Imagem do aviso',
+        'mime_type' => 'image'
+    )));
 
-    $wp_customize->add_setting('add-aviso-atualizacao-cadastral',array(
-        'default' => _x('','ascorsan'),
-        'type' => 'theme_mod'
-
-    ));
-
-    $wp_customize->add_control('add-aviso-atualizacao-cadastral',array(
-        'type' => 'checkbox',
-        'label' => __('Habilitar formulario de atualização cadastral no Pop-up?','ascorsan'),
-        'section' => 'aviso',
-        'priority' => 1,
-    )); 
-
-//  Comentado pois irá puxar a ultima postagem de um custom post type do tipo avisos do site
-    // Descomentar caso queira manter fixo
-
-//     $wp_customize->add_setting('titulo-aviso',array(
-//         'default' => _x('','ascorsan'),
-//         'type' => 'theme_mod'
-
-//     ));
-
-//     $wp_customize->add_control('titulo-aviso',array(
-//         'label' => __('Titulo do aviso','ascorsan'),
-//         'section' => 'aviso',
-//         'priority' => 2,
-//     ));
-
-//     $wp_customize->add_setting('corpo-aviso',array(
-//         'default' => _x('','ascorsan'),
-//         'type' => 'theme_mod'
-
-//     ));
-
-//     $wp_customize->add_control('corpo-aviso',array(
-//         'type' => 'textarea',
-//         'label' => __('Corpo do aviso','ascorsan'),
-//         'section' => 'aviso',
-//         'priority' => 3,
-//     ));
-// // Adicionando imagem ao aviso
-
-//     $wp_customize->add_setting('img-aviso', array(
-//         'type' => 'theme_mod',
-//         'capability' => 'edit_theme_options',
-//         'sanitize_callback' => 'absint'
-//     ));
-
-//     $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'img-aviso', array(
-//         'section' => 'aviso',
-//         'description' => 'A imagem que irá no aviso quando ele estiver ativo.',
-//         'label' => 'Imagem do aviso',
-//         'mime_type' => 'image'
-//     )));
 
 }
 

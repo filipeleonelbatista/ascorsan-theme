@@ -138,10 +138,12 @@ add_action('admin_menu', 'asc_add_content_page');
 function asc_content_create_page()
 {
     echo '<h1>Tema Ascorsan</h1>';
-    echo '<span>Versão 1.9</span>';
+    echo '<span>Versão 1.10</span>';
     echo '<h1>Novidades desta versão</h1>';
-    echo '<p>Adicionado a opção de inserir um banner na pagina "Espaço do associado" com um link que você pode colocar para qual site desejar.</p>';
-    echo '<p>Basta seguir este menu. Menu Conteúdos > Personalizar Tema > Personalizar Tema Ascorsan > Banner Espaço do Associado.</p>';
-    echo '<p>Ao inserir o link e o titulo e salvar você verá um botão abaixo do titulo da página de associado. Agora se colocar uma imagem, será substituído o botão pela imagem.</p>';
+    echo '<p>Adicionada opções de pop up padrão e personalizadas e ainda imagem destacada.</p>';
+    echo '<p>Basta seguir este menu. Menu Conteúdos > Personalizar Tema > Personalizar Tema Ascorsan > Avisos do site.</p>';
+    echo '<p>No primeiro botão seleciona o tipo do formulário. Se a opção selecionada for nenhum, não apresentará o pop up. Se for atualização cadastral seguirá o formulário padrão definido. O mesmom para o formulário imposto de renda que mostrará o formulário definido para este modelo.</p>';
+    echo '<p>Caso tenha selecionado o tipo Página personalizada basta escolher uma página que será apresentada no pop up.</p>';
+    echo '<p>Com isso ultilize o Plugin Ninja forms para Criar o formulário personalizado. Após criar, vá na página selecionada e adicione o formulário lá.</p>';
     echo '<a href="http://localhost/wordpress/wp-admin/customize.php">Ir para o menu personalizar</a>';
 }

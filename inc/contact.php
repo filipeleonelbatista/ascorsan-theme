@@ -33,6 +33,18 @@ function asc_contact_page_register($wp_customize){
         'priority' => 1,
     ));
 
+    $wp_customize->add_setting('email-update-imposto-renda',array(
+        'default' => _x('','ascorsan'),
+        'type' => 'theme_mod'
+
+    ));
+
+    $wp_customize->add_control('email-update-imposto-renda',array(
+        'label' => __('Email do formulario de solicitação do imposto de renda','ascorsan'),
+        'section' => 'contato',
+        'priority' => 1,
+    ));
+
     $wp_customize->add_setting('email-contato',array(
         'default' => _x('','ascorsan'),
         'type' => 'theme_mod'

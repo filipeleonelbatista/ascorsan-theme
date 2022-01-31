@@ -279,7 +279,7 @@ add_action( 'wp_before_admin_bar_render', 'asc_admin_bar_render' );
 
 function asc_remove_menus() {
 	// if ( ! current_user_can( 'manage_options' ) ) {
-	if ( true) {
+	if ( true ) {
 
 		// Removendo conteudos
 		remove_menu_page( 'index.php' ); 
@@ -317,7 +317,7 @@ add_action( 'admin_menu', 'asc_adjust_the_wp_menu', 999 );
 
 // Custom Admin footer
 function asc_remove_footer_admin () {
-	echo '<span id="footer-thankyou">Tema Ascorsan - Versão 1.9<br> Desenvolvido por <a href="https://linktr.ee/filipeleonelbatista" target="_blank">Leonel Informática</a></span>';
+	echo '<span id="footer-thankyou">Tema Ascorsan - Versão 1.10<br> Desenvolvido por <a href="https://filipedev.ga/" target="_blank">Leonel Informática</a></span>';
 }
 add_filter( 'admin_footer_text', 'asc_remove_footer_admin' );
 
